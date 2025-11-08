@@ -1,0 +1,560 @@
+{
+  "conf_congreso": {
+    "name": "Confianza en el Congreso",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "política"],
+    "description": "Nivel de confianza ciudadana en el Congreso Nacional"
+  },
+  "conf_gobierno": {
+    "name": "Confianza en el Gobierno",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "política"],
+    "description": "Nivel de confianza en el Gobierno de turno"
+  },
+  "conf_poder_judicial": {
+    "name": "Confianza en el Poder Judicial",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "justicia"],
+    "description": "Nivel de confianza en tribunales y sistema judicial"
+  },
+  "conf_carabineros": {
+    "name": "Confianza en Carabineros",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "seguridad"],
+    "description": "Nivel de confianza en la policía uniformada"
+  },
+  "conf_fuerzas_armadas": {
+    "name": "Confianza en Fuerzas Armadas",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "defensa"],
+    "description": "Nivel de confianza en las FF.AA."
+  },
+  "conf_iglesia_catolica": {
+    "name": "Confianza en Iglesia Católica",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "religión"],
+    "description": "Nivel de confianza en la Iglesia Católica"
+  },
+  "conf_partidos_politicos": {
+    "name": "Confianza en Partidos Políticos",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "política"],
+    "description": "Nivel de confianza en los partidos políticos"
+  },
+  "conf_empresas": {
+    "name": "Confianza en Empresas",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "economía"],
+    "description": "Nivel de confianza en las grandes empresas"
+  },
+  "conf_medios_comunicacion": {
+    "name": "Confianza en Medios de Comunicación",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "medios"],
+    "description": "Nivel de confianza en prensa y medios"
+  },
+  "conf_sindicatos": {
+    "name": "Confianza en Sindicatos",
+    "years": [1990, 2023],
+    "tags": ["instituciones", "confianza", "trabajo"],
+    "description": "Nivel de confianza en organizaciones sindicales"
+  },
+  "relig_importancia": {
+    "name": "Importancia de la religión",
+    "years": [1998, 2023],
+    "tags": ["valores", "religión"],
+    "description": "Cuán importante es la religión en la vida"
+  },
+  "relig_asistencia": {
+    "name": "Asistencia religiosa",
+    "years": [1998, 2023],
+    "tags": ["valores", "religión", "prácticas"],
+    "description": "Frecuencia de asistencia a servicios religiosos"
+  },
+  "relig_denominacion": {
+    "name": "Denominación religiosa",
+    "years": [1990, 2023],
+    "tags": ["valores", "religión", "identidad"],
+    "description": "Religión que profesa"
+  },
+  "democracia_mejor_sistema": {
+    "name": "Democracia como mejor sistema",
+    "years": [1990, 2023],
+    "tags": ["política", "valores", "democracia"],
+    "description": "Acuerdo con que democracia es mejor que otros sistemas"
+  },
+  "democracia_satisfaccion": {
+    "name": "Satisfacción con la democracia",
+    "years": [1990, 2023],
+    "tags": ["política", "democracia"],
+    "description": "Nivel de satisfacción con funcionamiento democrático"
+  },
+  "ident_politica": {
+    "name": "Identificación política",
+    "years": [1990, 2023],
+    "tags": ["política", "identidad"],
+    "description": "Posición en escala izquierda-derecha"
+  },
+  "interes_politica": {
+    "name": "Interés en política",
+    "years": [1990, 2023],
+    "tags": ["política", "participación"],
+    "description": "Nivel de interés en temas políticos"
+  },
+  "particip_voto": {
+    "name": "Participación electoral",
+    "years": [1990, 2023],
+    "tags": ["política", "participación"],
+    "description": "Votó en última elección"
+  },
+  "particip_manifestacion": {
+    "name": "Participación en manifestaciones",
+    "years": [1990, 2023],
+    "tags": ["política", "participación", "protesta"],
+    "description": "Ha participado en marchas o protestas"
+  },
+  "apoyo_mercado": {
+    "name": "Apoyo economía de mercado",
+    "years": [1990, 2023],
+    "tags": ["economía", "valores"],
+    "description": "Acuerdo con sistema de libre mercado"
+  },
+  "percep_desigualdad": {
+    "name": "Percepción de desigualdad",
+    "years": [1998, 2023],
+    "tags": ["economía", "desigualdad"],
+    "description": "Percepción sobre nivel de desigualdad"
+  },
+  "movilidad_social": {
+    "name": "Percepción movilidad social",
+    "years": [1998, 2023],
+    "tags": ["economía", "desigualdad", "movilidad"],
+    "description": "Creencia en posibilidad de mejorar estatus"
+  },
+  "situacion_economica_pais": {
+    "name": "Evaluación economía país",
+    "years": [1990, 2023],
+    "tags": ["economía"],
+    "description": "Evaluación situación económica nacional"
+  },
+  "situacion_economica_personal": {
+    "name": "Evaluación economía personal",
+    "years": [1990, 2023],
+    "tags": ["economía"],
+    "description": "Evaluación situación económica propia"
+  },
+  "apoyo_redistribucion": {
+    "name": "Apoyo políticas redistributivas",
+    "years": [1998, 2023],
+    "tags": ["economía", "desigualdad", "políticas"],
+    "description": "Apoyo a políticas que reducen desigualdad"
+  },
+  "salud_satisfaccion_sistema": {
+    "name": "Satisfacción sistema salud",
+    "years": [1998, 2023],
+    "tags": ["salud", "políticas"],
+    "description": "Satisfacción con sistema de salud"
+  },
+  "salud_tipo_prevision": {
+    "name": "Tipo previsión salud",
+    "years": [1990, 2023],
+    "tags": ["salud", "demografía"],
+    "description": "Sistema de salud (público/privado)"
+  },
+  "educ_satisfaccion_sistema": {
+    "name": "Satisfacción sistema educación",
+    "years": [1998, 2023],
+    "tags": ["educación", "políticas"],
+    "description": "Satisfacción con sistema educacional"
+  },
+  "educ_calidad_publica": {
+    "name": "Evaluación educación pública",
+    "years": [2000, 2023],
+    "tags": ["educación", "políticas"],
+    "description": "Evaluación calidad educación pública"
+  },
+  "educ_nivel": {
+    "name": "Nivel educacional",
+    "years": [1990, 2023],
+    "tags": ["demografía", "educación"],
+    "description": "Máximo nivel educacional alcanzado"
+  },
+  "seguridad_victimizacion": {
+    "name": "Victimización delictual",
+    "years": [1998, 2023],
+    "tags": ["seguridad"],
+    "description": "Ha sido víctima de delito"
+  },
+  "seguridad_percepcion": {
+    "name": "Sensación de inseguridad",
+    "years": [1998, 2023],
+    "tags": ["seguridad"],
+    "description": "Percepción de inseguridad en barrio"
+  },
+  "edad": {
+    "name": "Edad",
+    "years": [1990, 2023],
+    "tags": ["demografía"],
+    "description": "Edad del encuestado"
+  },
+  "sexo": {
+    "name": "Sexo",
+    "years": [1990, 2023],
+    "tags": ["demografía"],
+    "description": "Sexo del encuestado"
+  },
+  "zona": {
+    "name": "Zona urbano/rural",
+    "years": [1990, 2023],
+    "tags": ["demografía", "geografía"],
+    "description": "Zona de residencia"
+  },
+  "region": {
+    "name": "Región",
+    "years": [1990, 2023],
+    "tags": ["demografía", "geografía"],
+    "description": "Región de residencia"
+  },
+  "ingreso_hogar": {
+    "name": "Ingreso del hogar",
+    "years": [1990, 2023],
+    "tags": ["demografía", "economía"],
+    "description": "Nivel de ingreso familiar"
+  },
+  "clase_social": {
+    "name": "Clase social autopercibida",
+    "years": [1998, 2023],
+    "tags": ["demografía", "identidad"],
+    "description": "Clase social con la que se identifica"
+  },
+  "migracion_actitud": {
+    "name": "Actitud hacia inmigración",
+    "years": [2000, 2023],
+    "tags": ["migración", "valores"],
+    "description": "Actitud hacia inmigrantes"
+  },
+  "migracion_impacto_economia": {
+    "name": "Impacto migración en economía",
+    "years": [2010, 2023],
+    "tags": ["migración", "economía"],
+    "description": "Percepción impacto económico de inmigración"
+  },
+  "migracion_impacto_cultura": {
+    "name": "Impacto migración en cultura",
+    "years": [2010, 2023],
+    "tags": ["migración", "identidad"],
+    "description": "Percepción impacto cultural de inmigración"
+  },
+  "ident_nacional": {
+    "name": "Orgullo nacional",
+    "years": [1998, 2023],
+    "tags": ["identidad", "valores"],
+    "description": "Nivel de orgullo de ser chileno"
+  },
+  "ident_origen_etnico": {
+    "name": "Identificación étnica",
+    "years": [2000, 2023],
+    "tags": ["identidad", "demografía"],
+    "description": "Identificación con pueblos originarios"
+  },
+  "medio_ambiente_preocupacion": {
+    "name": "Preocupación ambiental",
+    "years": [2005, 2023],
+    "tags": ["medio ambiente", "valores"],
+    "description": "Nivel de preocupación por medio ambiente"
+  },
+  "medio_ambiente_cambio_climatico": {
+    "name": "Preocupación cambio climático",
+    "years": [2010, 2023],
+    "tags": ["medio ambiente", "cambio climático"],
+    "description": "Preocupación por cambio climático"
+  },
+  "medio_ambiente_politicas": {
+    "name": "Apoyo políticas ambientales",
+    "years": [2010, 2023],
+    "tags": ["medio ambiente", "políticas"],
+    "description": "Apoyo a políticas de protección ambiental"
+  },
+  "valores_aborto": {
+    "name": "Posición sobre aborto",
+    "years": [1998, 2023],
+    "tags": ["valores", "moral"],
+    "description": "Posición sobre legalización del aborto"
+  },
+  "valores_divorcio": {
+    "name": "Posición sobre divorcio",
+    "years": [1998, 2023],
+    "tags": ["valores", "moral"],
+    "description": "Aceptación del divorcio"
+  },
+  "valores_matrimonio_igualitario": {
+    "name": "Matrimonio igualitario",
+    "years": [2010, 2023],
+    "tags": ["valores", "moral", "derechos"],
+    "description": "Apoyo al matrimonio entre personas del mismo sexo"
+  },
+  "valores_roles_genero": {
+    "name": "Roles de género tradicionales",
+    "years": [1998, 2023],
+    "tags": ["valores", "género"],
+    "description": "Acuerdo con roles de género tradicionales"
+  },
+  "valores_familia": {
+    "name": "Importancia de la familia",
+    "years": [1998, 2023],
+    "tags": ["valores"],
+    "description": "Importancia de la familia en la vida"
+  },
+  "confianza_interpersonal": {
+    "name": "Confianza interpersonal",
+    "years": [1990, 2023],
+    "tags": ["confianza", "valores"],
+    "description": "Confianza en la mayoría de las personas"
+  },
+  "tolerancia_diversidad": {
+    "name": "Tolerancia a la diversidad",
+    "years": [2000, 2023],
+    "tags": ["valores", "tolerancia"],
+    "description": "Aceptación de personas diferentes"
+  },
+  "apoyo_autoritarismo": {
+    "name": "Apoyo mano dura",
+    "years": [1990, 2023],
+    "tags": ["política", "valores", "autoritarismo"],
+    "description": "Apoyo a medidas autoritarias"
+  },
+  "aprobacion_presidente": {
+    "name": "Aprobación presidente",
+    "years": [1990, 2023],
+    "tags": ["política"],
+    "description": "Aprobación gestión presidente"
+  },
+  "identif_partido": {
+    "name": "Identificación partidaria",
+    "years": [1990, 2023],
+    "tags": ["política", "identidad"],
+    "description": "Se identifica con algún partido"
+  },
+  "eficacia_politica": {
+    "name": "Eficacia política percibida",
+    "years": [1998, 2023],
+    "tags": ["política", "participación"],
+    "description": "Creencia en capacidad de influir políticamente"
+  },
+  "info_politica_television": {
+    "name": "Información política TV",
+    "years": [1990, 2023],
+    "tags": ["medios", "política"],
+    "description": "Se informa por televisión"
+  },
+  "info_politica_internet": {
+    "name": "Información política internet",
+    "years": [2005, 2023],
+    "tags": ["medios", "política", "internet"],
+    "description": "Se informa por internet/redes sociales"
+  },
+  "uso_redes_sociales": {
+    "name": "Uso redes sociales",
+    "years": [2010, 2023],
+    "tags": ["medios", "internet"],
+    "description": "Frecuencia uso redes sociales"
+  },
+  "corrupcion_percepcion": {
+    "name": "Percepción corrupción",
+    "years": [1998, 2023],
+    "tags": ["instituciones", "política"],
+    "description": "Percepción nivel de corrupción"
+  },
+  "corrupcion_tolerancia": {
+    "name": "Tolerancia corrupción",
+    "years": [2000, 2023],
+    "tags": ["valores", "política"],
+    "description": "Justificación de actos corruptos"
+  },
+  "discriminacion_percepcion": {
+    "name": "Percepción discriminación",
+    "years": [2005, 2023],
+    "tags": ["discriminación", "valores"],
+    "description": "Percepción de discriminación en Chile"
+  },
+  "discriminacion_personal": {
+    "name": "Experiencia discriminación",
+    "years": [2005, 2023],
+    "tags": ["discriminación"],
+    "description": "Ha sido discriminado personalmente"
+  },
+  "participacion_organizaciones": {
+    "name": "Participación organizacional",
+    "years": [1990, 2023],
+    "tags": ["participación"],
+    "description": "Participa en organizaciones sociales"
+  },
+  "satisfaccion_vida": {
+    "name": "Satisfacción con la vida",
+    "years": [1998, 2023],
+    "tags": ["bienestar"],
+    "description": "Nivel general de satisfacción con la vida"
+  },
+  "felicidad": {
+    "name": "Nivel de felicidad",
+    "years": [1998, 2023],
+    "tags": ["bienestar"],
+    "description": "Autoevaluación de felicidad"
+  },
+  "prioridad_economia": {
+    "name": "Economía como prioridad",
+    "years": [1990, 2023],
+    "tags": ["políticas", "prioridades"],
+    "description": "Economía como problema más importante"
+  },
+  "prioridad_seguridad": {
+    "name": "Seguridad como prioridad",
+    "years": [1990, 2023],
+    "tags": ["políticas", "prioridades"],
+    "description": "Seguridad como problema más importante"
+  },
+  "prioridad_salud": {
+    "name": "Salud como prioridad",
+    "years": [1990, 2023],
+    "tags": ["políticas", "prioridades"],
+    "description": "Salud como problema más importante"
+  },
+  "prioridad_educacion": {
+    "name": "Educación como prioridad",
+    "years": [1990, 2023],
+    "tags": ["políticas", "prioridades"],
+    "description": "Educación como problema más importante"
+  },
+  "prioridad_medio_ambiente": {
+    "name": "Medio ambiente como prioridad",
+    "years": [2005, 2023],
+    "tags": ["políticas", "prioridades", "medio ambiente"],
+    "description": "Medio ambiente como problema importante"
+  },
+  "evaluacion_constitucion": {
+    "name": "Evaluación nueva constitución",
+    "years": [2019, 2023],
+    "tags": ["política", "constitución"],
+    "description": "Posición sobre proceso constituyente"
+  },
+  "apoyo_pensiones_publicas": {
+    "name": "Apoyo sistema pensiones público",
+    "years": [2010, 2023],
+    "tags": ["políticas", "economía", "pensiones"],
+    "description": "Apoyo a sistema de pensiones público"
+  },
+  "satisfaccion_pensiones": {
+    "name": "Satisfacción sistema pensiones",
+    "years": [2010, 2023],
+    "tags": ["pensiones", "políticas"],
+    "description": "Satisfacción con sistema de pensiones"
+  },
+  "nacionalismo": {
+    "name": "Nacionalismo",
+    "years": [1998, 2023],
+    "tags": ["identidad", "valores"],
+    "description": "Nivel de actitudes nacionalistas"
+  },
+  "valores_trabajo": {
+    "name": "Importancia del trabajo",
+    "years": [1998, 2023],
+    "tags": ["valores", "trabajo"],
+    "description": "Importancia del trabajo en la vida"
+  },
+  "empleo_situacion": {
+    "name": "Situación laboral",
+    "years": [1990, 2023],
+    "tags": ["demografía", "trabajo"],
+    "description": "Situación laboral actual"
+  },
+  "sindicalismo_apoyo": {
+    "name": "Apoyo al sindicalismo",
+    "years": [1998, 2023],
+    "tags": ["trabajo", "valores"],
+    "description": "Valoración de organizaciones sindicales"
+  },
+  "memoria_dictadura": {
+    "name": "Evaluación dictadura",
+    "years": [1990, 2023],
+    "tags": ["política", "historia", "memoria"],
+    "description": "Evaluación periodo dictatorial"
+  },
+  "memoria_derechos_humanos": {
+    "name": "Importancia derechos humanos",
+    "years": [1990, 2023],
+    "tags": ["valores", "derechos humanos"],
+    "description": "Importancia de verdad y justicia por violaciones DDHH"
+  },
+  "apoyo_pena_muerte": {
+    "name": "Apoyo pena de muerte",
+    "years": [1990, 2023],
+    "tags": ["valores", "justicia"],
+    "description": "Apoyo a pena de muerte"
+  },
+  "globalizacion_actitud": {
+    "name": "Actitud hacia globalización",
+    "years": [2000, 2023],
+    "tags": ["valores", "economía"],
+    "description": "Actitud hacia proceso de globalización"
+  },
+  "participacion_huelga": {
+    "name": "Participación en huelgas",
+    "years": [1990, 2023],
+    "tags": ["participación", "trabajo"],
+    "description": "Ha participado en huelgas"
+  },
+  "participacion_boicot": {
+    "name": "Participación en boicots",
+    "years": [1998, 2023],
+    "tags": ["participación"],
+    "description": "Ha participado en boicots"
+  },
+  "tecnocracia_apoyo": {
+    "name": "Apoyo gobierno de expertos",
+    "years": [2000, 2023],
+    "tags": ["política", "valores"],
+    "description": "Preferencia por gobierno de técnicos vs políticos"
+  },
+  "populismo": {
+    "name": "Actitudes populistas",
+    "years": [2010, 2023],
+    "tags": ["política", "valores"],
+    "description": "Nivel de actitudes populistas"
+  },
+  "estado_rol": {
+    "name": "Rol del Estado",
+    "years": [1990, 2023],
+    "tags": ["economía", "valores", "políticas"],
+    "description": "Preferencia sobre rol del Estado en economía"
+  },
+  "impuestos_actitud": {
+    "name": "Actitud hacia impuestos",
+    "years": [2000, 2023],
+    "tags": ["economía", "políticas"],
+    "description": "Disposición a pagar más impuestos"
+  },
+  "evasion_fiscal_tolerancia": {
+    "name": "Tolerancia evasión fiscal",
+    "years": [2000, 2023],
+    "tags": ["valores", "economía"],
+    "description": "Justificación de evasión de impuestos"
+  },
+  "ciencia_confianza": {
+    "name": "Confianza en la ciencia",
+    "years": [2005, 2023],
+    "tags": ["valores", "ciencia"],
+    "description": "Confianza en conocimiento científico"
+  },
+  "tecnologia_actitud": {
+    "name": "Actitud hacia tecnología",
+    "years": [2005, 2023],
+    "tags": ["valores", "tecnología"],
+    "description": "Actitud hacia avances tecnológicos"
+  },
+  "privacidad_preocupacion": {
+    "name": "Preocupación por privacidad",
+    "years": [2010, 2023],
+    "tags": ["valores", "tecnología"],
+    "description": "Preocupación por privacidad de datos"
+  }
+}
