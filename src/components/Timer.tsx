@@ -5,19 +5,33 @@ interface TimerProps {
   endTime: number; // Timestamp en ms
   onExpire: () => void;
   className?: string;
+  isPaused?: boolean;
 }
 
-export default function Timer({ endTime, onExpire, className = '' }: TimerProps) {
+export default function Timer({ endTime, onExpire, className = '', isPaused = false }: TimerProps) {
   const [timeLeft, setTimeLeft] = useState(0);
+  const [pausedTime, setPausedTime] = useState(0);
 
   useEffect(() => {
-    const updateTimer = () => {
-      const now = Date.now();
-      const remaining = Math.max(0, endTime - now);
-      setTimeLeft(remaining);
+    if (isPaused) {
+      // Guardar el tiempo restante cuando se pausa
+      setPausedTime(timeLeft);
+      return;
+    }
 
-      if (remaining === 0) {
-        onExpire();
+    const updateTimer = () => {
+      if (pausedTime > 0) {
+        // Si se reanuda, usar el tiempo guardado
+        setTimeLeft(pausedTime);
+        setPausedTime(0);
+      } else {
+        const now = Date.now();
+        const remaining = Math.max(0, endTime - now);
+        setTimeLeft(remaining);
+
+        if (remaining === 0) {
+          onExpire();
+        }
       }
     };
 
@@ -25,7 +39,7 @@ export default function Timer({ endTime, onExpire, className = '' }: TimerProps)
     const interval = setInterval(updateTimer, 100);
 
     return () => clearInterval(interval);
-  }, [endTime, onExpire]);
+  }, [endTime, onExpire, isPaused, pausedTime, timeLeft]);
 
   const minutes = Math.floor(timeLeft / 60000);
   const seconds = Math.floor((timeLeft % 60000) / 1000);
