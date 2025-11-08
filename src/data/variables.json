@@ -1,560 +1,1404 @@
 {
-  "conf_congreso": {
-    "name": "Confianza en el Congreso",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "política"],
-    "description": "Nivel de confianza ciudadana en el Congreso Nacional"
+  "p1_satisfaccion_general": {
+    "code": "P1",
+    "name": "Satisfacción general con la vida",
+    "category": "Valores y Cultura",
+    "encuestas": [
+      {
+        "numero": 29,
+        "periodo": "Nov–Dic 1994",
+        "pregunta_exacta": "En general, considerando todos los aspectos de su vida, ¿cuán satisfecho o insatisfecho se encuentra usted actualmente?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Ni bien ni mal",
+          "Satisfecho",
+          "Muy satisfecho",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 30,
+        "periodo": "May–Jun 1995",
+        "pregunta_exacta": "En general, considerando todos los aspectos de su vida, ¿cuán satisfecho o insatisfecho se encuentra usted actualmente?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Ni bien ni mal",
+          "Satisfecho",
+          "Muy satisfecho",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 34,
+        "periodo": "Jun–Jul 1997",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 43,
+        "periodo": "Jul 2002",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "En general, considerando todos los aspectos de su vida, ¿diría usted que está satisfecho o insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 65,
+        "periodo": "Nov–Dic 2011",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 69,
+        "periodo": "Jul–Ago 2013",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 77,
+        "periodo": "Jul–Ago 2016",
+        "pregunta_exacta": "En general, considerando todos los aspectos de su vida, ¿diría usted que está satisfecho o insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 83,
+        "periodo": "May 2019",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "bienestar",
+      "vida",
+      "satisfaccion",
+      "felicidad"
+    ],
+    "variables_relacionadas": [
+      "p5_situacion_economica_hogar",
+      "p6_expectativas_economicas"
+    ],
+    "years": [
+      1994,
+      2024
+    ],
+    "es_serie_temporal": true
   },
-  "conf_gobierno": {
-    "name": "Confianza en el Gobierno",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "política"],
-    "description": "Nivel de confianza en el Gobierno de turno"
+  "p10_aprobacion_gobierno": {
+    "code": "P10",
+    "name": "Aprobación de la gestión presidencial",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 34,
+        "periodo": "Jun–Jul 1997",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Eduardo Frei Ruiz-Tagle está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "No aprueba ni desaprueba",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Eduardo Frei Ruiz-Tagle está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "No aprueba ni desaprueba",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 43,
+        "periodo": "Jul 2002",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Ricardo Lagos está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Ricardo Lagos está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como la Presidenta Michelle Bachelet está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 65,
+        "periodo": "Nov–Dic 2011",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Sebastián Piñera está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 69,
+        "periodo": "Jul–Ago 2013",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Sebastián Piñera está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 77,
+        "periodo": "Jul–Ago 2016",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como la Presidenta Michelle Bachelet está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 83,
+        "periodo": "May 2019",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Sebastián Piñera está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "Independientemente de su posición política, ¿aprueba o desaprueba la forma en que el Presidente está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 94,
+        "periodo": "Jun 2025",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma en que el Presidente Boric está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": [
+      "politica",
+      "gobierno",
+      "presidente",
+      "aprobacion"
+    ],
+    "variables_relacionadas": [
+      "p15_confianza_instituciones",
+      "p16_percepcion_corrupcion"
+    ],
+    "years": [
+      1994,
+      2025
+    ],
+    "es_serie_temporal": true
   },
-  "conf_poder_judicial": {
-    "name": "Confianza en el Poder Judicial",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "justicia"],
-    "description": "Nivel de confianza en tribunales y sistema judicial"
+  "p15_confianza_instituciones": {
+    "code": "P15",
+    "name": "Confianza en instituciones",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 34,
+        "periodo": "Jun–Jul 1997",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en las siguientes instituciones?",
+        "opciones": [
+          "Mucha",
+          "Algo",
+          "Poca",
+          "Ninguna",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en las siguientes instituciones o personas?",
+        "opciones": [
+          "Mucha",
+          "Algo",
+          "Poca",
+          "Ninguna",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en las siguientes instituciones?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en las siguientes instituciones?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en las siguientes instituciones?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en las siguientes instituciones?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "confianza",
+      "instituciones",
+      "politica",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p16_percepcion_corrupcion",
+      "p10_aprobacion_gobierno"
+    ],
+    "years": [
+      1997,
+      2024
+    ],
+    "es_serie_temporal": true
   },
-  "conf_carabineros": {
+  "p16_percepcion_corrupcion": {
+    "code": "P16",
+    "name": "Percepción de corrupción",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 34,
+        "periodo": "Jun–Jul 1997",
+        "pregunta_exacta": "¿Diría usted que en Chile hay mucha, algo, poca o ninguna corrupción en el gobierno?",
+        "opciones": [
+          "Mucha",
+          "Algo",
+          "Poca",
+          "Ninguna",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "¿Diría usted que en Chile hay mucha, algo, poca o ninguna corrupción en el gobierno?",
+        "opciones": [
+          "Mucha",
+          "Algo",
+          "Poca",
+          "Ninguna",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "corrupcion",
+      "gobierno",
+      "politica",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p15_confianza_instituciones",
+      "p10_aprobacion_gobierno"
+    ],
+    "years": [
+      1997,
+      1999
+    ],
+    "es_serie_temporal": true
+  },
+  "p20_problemas_principales_pais": {
+    "code": "P20",
+    "name": "Principales problemas del país",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "¿Cuál cree usted que es el principal problema que tiene hoy el país?",
+        "opciones": [
+          "Respuesta abierta codificada",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": [
+      "problemas",
+      "pais",
+      "politica",
+      "agenda_publica"
+    ],
+    "variables_relacionadas": [
+      "p10_aprobacion_gobierno",
+      "p16_percepcion_corrupcion"
+    ],
+    "years": [
+      1999,
+      1999
+    ]
+  },
+  "p47_confianza_carabineros": {
+    "code": "P47",
     "name": "Confianza en Carabineros",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "seguridad"],
-    "description": "Nivel de confianza en la policía uniformada"
-  },
-  "conf_fuerzas_armadas": {
-    "name": "Confianza en Fuerzas Armadas",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "defensa"],
-    "description": "Nivel de confianza en las FF.AA."
-  },
-  "conf_iglesia_catolica": {
-    "name": "Confianza en Iglesia Católica",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "religión"],
-    "description": "Nivel de confianza en la Iglesia Católica"
-  },
-  "conf_partidos_politicos": {
-    "name": "Confianza en Partidos Políticos",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "política"],
-    "description": "Nivel de confianza en los partidos políticos"
-  },
-  "conf_empresas": {
-    "name": "Confianza en Empresas",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "economía"],
-    "description": "Nivel de confianza en las grandes empresas"
-  },
-  "conf_medios_comunicacion": {
-    "name": "Confianza en Medios de Comunicación",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "medios"],
-    "description": "Nivel de confianza en prensa y medios"
-  },
-  "conf_sindicatos": {
-    "name": "Confianza en Sindicatos",
-    "years": [1990, 2023],
-    "tags": ["instituciones", "confianza", "trabajo"],
-    "description": "Nivel de confianza en organizaciones sindicales"
-  },
-  "relig_importancia": {
-    "name": "Importancia de la religión",
-    "years": [1998, 2023],
-    "tags": ["valores", "religión"],
-    "description": "Cuán importante es la religión en la vida"
-  },
-  "relig_asistencia": {
-    "name": "Asistencia religiosa",
-    "years": [1998, 2023],
-    "tags": ["valores", "religión", "prácticas"],
-    "description": "Frecuencia de asistencia a servicios religiosos"
-  },
-  "relig_denominacion": {
-    "name": "Denominación religiosa",
-    "years": [1990, 2023],
-    "tags": ["valores", "religión", "identidad"],
-    "description": "Religión que profesa"
-  },
-  "democracia_mejor_sistema": {
-    "name": "Democracia como mejor sistema",
-    "years": [1990, 2023],
-    "tags": ["política", "valores", "democracia"],
-    "description": "Acuerdo con que democracia es mejor que otros sistemas"
-  },
-  "democracia_satisfaccion": {
-    "name": "Satisfacción con la democracia",
-    "years": [1990, 2023],
-    "tags": ["política", "democracia"],
-    "description": "Nivel de satisfacción con funcionamiento democrático"
-  },
-  "ident_politica": {
-    "name": "Identificación política",
-    "years": [1990, 2023],
-    "tags": ["política", "identidad"],
-    "description": "Posición en escala izquierda-derecha"
-  },
-  "interes_politica": {
-    "name": "Interés en política",
-    "years": [1990, 2023],
-    "tags": ["política", "participación"],
-    "description": "Nivel de interés en temas políticos"
-  },
-  "particip_voto": {
-    "name": "Participación electoral",
-    "years": [1990, 2023],
-    "tags": ["política", "participación"],
-    "description": "Votó en última elección"
-  },
-  "particip_manifestacion": {
-    "name": "Participación en manifestaciones",
-    "years": [1990, 2023],
-    "tags": ["política", "participación", "protesta"],
-    "description": "Ha participado en marchas o protestas"
-  },
-  "apoyo_mercado": {
-    "name": "Apoyo economía de mercado",
-    "years": [1990, 2023],
-    "tags": ["economía", "valores"],
-    "description": "Acuerdo con sistema de libre mercado"
-  },
-  "percep_desigualdad": {
-    "name": "Percepción de desigualdad",
-    "years": [1998, 2023],
-    "tags": ["economía", "desigualdad"],
-    "description": "Percepción sobre nivel de desigualdad"
-  },
-  "movilidad_social": {
-    "name": "Percepción movilidad social",
-    "years": [1998, 2023],
-    "tags": ["economía", "desigualdad", "movilidad"],
-    "description": "Creencia en posibilidad de mejorar estatus"
-  },
-  "situacion_economica_pais": {
-    "name": "Evaluación economía país",
-    "years": [1990, 2023],
-    "tags": ["economía"],
-    "description": "Evaluación situación económica nacional"
-  },
-  "situacion_economica_personal": {
-    "name": "Evaluación economía personal",
-    "years": [1990, 2023],
-    "tags": ["economía"],
-    "description": "Evaluación situación económica propia"
-  },
-  "apoyo_redistribucion": {
-    "name": "Apoyo políticas redistributivas",
-    "years": [1998, 2023],
-    "tags": ["economía", "desigualdad", "políticas"],
-    "description": "Apoyo a políticas que reducen desigualdad"
-  },
-  "salud_satisfaccion_sistema": {
-    "name": "Satisfacción sistema salud",
-    "years": [1998, 2023],
-    "tags": ["salud", "políticas"],
-    "description": "Satisfacción con sistema de salud"
-  },
-  "salud_tipo_prevision": {
-    "name": "Tipo previsión salud",
-    "years": [1990, 2023],
-    "tags": ["salud", "demografía"],
-    "description": "Sistema de salud (público/privado)"
-  },
-  "educ_satisfaccion_sistema": {
-    "name": "Satisfacción sistema educación",
-    "years": [1998, 2023],
-    "tags": ["educación", "políticas"],
-    "description": "Satisfacción con sistema educacional"
-  },
-  "educ_calidad_publica": {
-    "name": "Evaluación educación pública",
-    "years": [2000, 2023],
-    "tags": ["educación", "políticas"],
-    "description": "Evaluación calidad educación pública"
-  },
-  "educ_nivel": {
-    "name": "Nivel educacional",
-    "years": [1990, 2023],
-    "tags": ["demografía", "educación"],
-    "description": "Máximo nivel educacional alcanzado"
-  },
-  "seguridad_victimizacion": {
-    "name": "Victimización delictual",
-    "years": [1998, 2023],
-    "tags": ["seguridad"],
-    "description": "Ha sido víctima de delito"
-  },
-  "seguridad_percepcion": {
-    "name": "Sensación de inseguridad",
-    "years": [1998, 2023],
-    "tags": ["seguridad"],
-    "description": "Percepción de inseguridad en barrio"
-  },
-  "edad": {
-    "name": "Edad",
-    "years": [1990, 2023],
-    "tags": ["demografía"],
-    "description": "Edad del encuestado"
-  },
-  "sexo": {
-    "name": "Sexo",
-    "years": [1990, 2023],
-    "tags": ["demografía"],
-    "description": "Sexo del encuestado"
-  },
-  "zona": {
-    "name": "Zona urbano/rural",
-    "years": [1990, 2023],
-    "tags": ["demografía", "geografía"],
-    "description": "Zona de residencia"
-  },
-  "region": {
-    "name": "Región",
-    "years": [1990, 2023],
-    "tags": ["demografía", "geografía"],
-    "description": "Región de residencia"
-  },
-  "ingreso_hogar": {
-    "name": "Ingreso del hogar",
-    "years": [1990, 2023],
-    "tags": ["demografía", "economía"],
-    "description": "Nivel de ingreso familiar"
-  },
-  "clase_social": {
-    "name": "Clase social autopercibida",
-    "years": [1998, 2023],
-    "tags": ["demografía", "identidad"],
-    "description": "Clase social con la que se identifica"
-  },
-  "migracion_actitud": {
-    "name": "Actitud hacia inmigración",
-    "years": [2000, 2023],
-    "tags": ["migración", "valores"],
-    "description": "Actitud hacia inmigrantes"
-  },
-  "migracion_impacto_economia": {
-    "name": "Impacto migración en economía",
-    "years": [2010, 2023],
-    "tags": ["migración", "economía"],
-    "description": "Percepción impacto económico de inmigración"
-  },
-  "migracion_impacto_cultura": {
-    "name": "Impacto migración en cultura",
-    "years": [2010, 2023],
-    "tags": ["migración", "identidad"],
-    "description": "Percepción impacto cultural de inmigración"
-  },
-  "ident_nacional": {
-    "name": "Orgullo nacional",
-    "years": [1998, 2023],
-    "tags": ["identidad", "valores"],
-    "description": "Nivel de orgullo de ser chileno"
-  },
-  "ident_origen_etnico": {
-    "name": "Identificación étnica",
-    "years": [2000, 2023],
-    "tags": ["identidad", "demografía"],
-    "description": "Identificación con pueblos originarios"
-  },
-  "medio_ambiente_preocupacion": {
-    "name": "Preocupación ambiental",
-    "years": [2005, 2023],
-    "tags": ["medio ambiente", "valores"],
-    "description": "Nivel de preocupación por medio ambiente"
-  },
-  "medio_ambiente_cambio_climatico": {
-    "name": "Preocupación cambio climático",
-    "years": [2010, 2023],
-    "tags": ["medio ambiente", "cambio climático"],
-    "description": "Preocupación por cambio climático"
-  },
-  "medio_ambiente_politicas": {
-    "name": "Apoyo políticas ambientales",
-    "years": [2010, 2023],
-    "tags": ["medio ambiente", "políticas"],
-    "description": "Apoyo a políticas de protección ambiental"
-  },
-  "valores_aborto": {
-    "name": "Posición sobre aborto",
-    "years": [1998, 2023],
-    "tags": ["valores", "moral"],
-    "description": "Posición sobre legalización del aborto"
-  },
-  "valores_divorcio": {
-    "name": "Posición sobre divorcio",
-    "years": [1998, 2023],
-    "tags": ["valores", "moral"],
-    "description": "Aceptación del divorcio"
-  },
-  "valores_matrimonio_igualitario": {
-    "name": "Matrimonio igualitario",
-    "years": [2010, 2023],
-    "tags": ["valores", "moral", "derechos"],
-    "description": "Apoyo al matrimonio entre personas del mismo sexo"
-  },
-  "valores_roles_genero": {
-    "name": "Roles de género tradicionales",
-    "years": [1998, 2023],
-    "tags": ["valores", "género"],
-    "description": "Acuerdo con roles de género tradicionales"
-  },
-  "valores_familia": {
-    "name": "Importancia de la familia",
-    "years": [1998, 2023],
-    "tags": ["valores"],
-    "description": "Importancia de la familia en la vida"
-  },
-  "confianza_interpersonal": {
-    "name": "Confianza interpersonal",
-    "years": [1990, 2023],
-    "tags": ["confianza", "valores"],
-    "description": "Confianza en la mayoría de las personas"
-  },
-  "tolerancia_diversidad": {
-    "name": "Tolerancia a la diversidad",
-    "years": [2000, 2023],
-    "tags": ["valores", "tolerancia"],
-    "description": "Aceptación de personas diferentes"
-  },
-  "apoyo_autoritarismo": {
-    "name": "Apoyo mano dura",
-    "years": [1990, 2023],
-    "tags": ["política", "valores", "autoritarismo"],
-    "description": "Apoyo a medidas autoritarias"
-  },
-  "aprobacion_presidente": {
-    "name": "Aprobación presidente",
-    "years": [1990, 2023],
-    "tags": ["política"],
-    "description": "Aprobación gestión presidente"
-  },
-  "identif_partido": {
-    "name": "Identificación partidaria",
-    "years": [1990, 2023],
-    "tags": ["política", "identidad"],
-    "description": "Se identifica con algún partido"
-  },
-  "eficacia_politica": {
-    "name": "Eficacia política percibida",
-    "years": [1998, 2023],
-    "tags": ["política", "participación"],
-    "description": "Creencia en capacidad de influir políticamente"
-  },
-  "info_politica_television": {
-    "name": "Información política TV",
-    "years": [1990, 2023],
-    "tags": ["medios", "política"],
-    "description": "Se informa por televisión"
-  },
-  "info_politica_internet": {
-    "name": "Información política internet",
-    "years": [2005, 2023],
-    "tags": ["medios", "política", "internet"],
-    "description": "Se informa por internet/redes sociales"
-  },
-  "uso_redes_sociales": {
-    "name": "Uso redes sociales",
-    "years": [2010, 2023],
-    "tags": ["medios", "internet"],
-    "description": "Frecuencia uso redes sociales"
-  },
-  "corrupcion_percepcion": {
-    "name": "Percepción corrupción",
-    "years": [1998, 2023],
-    "tags": ["instituciones", "política"],
-    "description": "Percepción nivel de corrupción"
-  },
-  "corrupcion_tolerancia": {
-    "name": "Tolerancia corrupción",
-    "years": [2000, 2023],
-    "tags": ["valores", "política"],
-    "description": "Justificación de actos corruptos"
-  },
-  "discriminacion_percepcion": {
-    "name": "Percepción discriminación",
-    "years": [2005, 2023],
-    "tags": ["discriminación", "valores"],
-    "description": "Percepción de discriminación en Chile"
-  },
-  "discriminacion_personal": {
-    "name": "Experiencia discriminación",
-    "years": [2005, 2023],
-    "tags": ["discriminación"],
-    "description": "Ha sido discriminado personalmente"
-  },
-  "participacion_organizaciones": {
-    "name": "Participación organizacional",
-    "years": [1990, 2023],
-    "tags": ["participación"],
-    "description": "Participa en organizaciones sociales"
-  },
-  "satisfaccion_vida": {
-    "name": "Satisfacción con la vida",
-    "years": [1998, 2023],
-    "tags": ["bienestar"],
-    "description": "Nivel general de satisfacción con la vida"
-  },
-  "felicidad": {
-    "name": "Nivel de felicidad",
-    "years": [1998, 2023],
-    "tags": ["bienestar"],
-    "description": "Autoevaluación de felicidad"
-  },
-  "prioridad_economia": {
-    "name": "Economía como prioridad",
-    "years": [1990, 2023],
-    "tags": ["políticas", "prioridades"],
-    "description": "Economía como problema más importante"
-  },
-  "prioridad_seguridad": {
-    "name": "Seguridad como prioridad",
-    "years": [1990, 2023],
-    "tags": ["políticas", "prioridades"],
-    "description": "Seguridad como problema más importante"
-  },
-  "prioridad_salud": {
-    "name": "Salud como prioridad",
-    "years": [1990, 2023],
-    "tags": ["políticas", "prioridades"],
-    "description": "Salud como problema más importante"
-  },
-  "prioridad_educacion": {
-    "name": "Educación como prioridad",
-    "years": [1990, 2023],
-    "tags": ["políticas", "prioridades"],
-    "description": "Educación como problema más importante"
-  },
-  "prioridad_medio_ambiente": {
-    "name": "Medio ambiente como prioridad",
-    "years": [2005, 2023],
-    "tags": ["políticas", "prioridades", "medio ambiente"],
-    "description": "Medio ambiente como problema importante"
-  },
-  "evaluacion_constitucion": {
-    "name": "Evaluación nueva constitución",
-    "years": [2019, 2023],
-    "tags": ["política", "constitución"],
-    "description": "Posición sobre proceso constituyente"
-  },
-  "apoyo_pensiones_publicas": {
-    "name": "Apoyo sistema pensiones público",
-    "years": [2010, 2023],
-    "tags": ["políticas", "economía", "pensiones"],
-    "description": "Apoyo a sistema de pensiones público"
-  },
-  "satisfaccion_pensiones": {
-    "name": "Satisfacción sistema pensiones",
-    "years": [2010, 2023],
-    "tags": ["pensiones", "políticas"],
-    "description": "Satisfacción con sistema de pensiones"
-  },
-  "nacionalismo": {
-    "name": "Nacionalismo",
-    "years": [1998, 2023],
-    "tags": ["identidad", "valores"],
-    "description": "Nivel de actitudes nacionalistas"
-  },
-  "valores_trabajo": {
-    "name": "Importancia del trabajo",
-    "years": [1998, 2023],
-    "tags": ["valores", "trabajo"],
-    "description": "Importancia del trabajo en la vida"
-  },
-  "empleo_situacion": {
-    "name": "Situación laboral",
-    "years": [1990, 2023],
-    "tags": ["demografía", "trabajo"],
-    "description": "Situación laboral actual"
-  },
-  "sindicalismo_apoyo": {
-    "name": "Apoyo al sindicalismo",
-    "years": [1998, 2023],
-    "tags": ["trabajo", "valores"],
-    "description": "Valoración de organizaciones sindicales"
-  },
-  "memoria_dictadura": {
-    "name": "Evaluación dictadura",
-    "years": [1990, 2023],
-    "tags": ["política", "historia", "memoria"],
-    "description": "Evaluación periodo dictatorial"
-  },
-  "memoria_derechos_humanos": {
-    "name": "Importancia derechos humanos",
-    "years": [1990, 2023],
-    "tags": ["valores", "derechos humanos"],
-    "description": "Importancia de verdad y justicia por violaciones DDHH"
-  },
-  "apoyo_pena_muerte": {
-    "name": "Apoyo pena de muerte",
-    "years": [1990, 2023],
-    "tags": ["valores", "justicia"],
-    "description": "Apoyo a pena de muerte"
-  },
-  "globalizacion_actitud": {
-    "name": "Actitud hacia globalización",
-    "years": [2000, 2023],
-    "tags": ["valores", "economía"],
-    "description": "Actitud hacia proceso de globalización"
-  },
-  "participacion_huelga": {
-    "name": "Participación en huelgas",
-    "years": [1990, 2023],
-    "tags": ["participación", "trabajo"],
-    "description": "Ha participado en huelgas"
-  },
-  "participacion_boicot": {
-    "name": "Participación en boicots",
-    "years": [1998, 2023],
-    "tags": ["participación"],
-    "description": "Ha participado en boicots"
-  },
-  "tecnocracia_apoyo": {
-    "name": "Apoyo gobierno de expertos",
-    "years": [2000, 2023],
-    "tags": ["política", "valores"],
-    "description": "Preferencia por gobierno de técnicos vs políticos"
-  },
-  "populismo": {
-    "name": "Actitudes populistas",
-    "years": [2010, 2023],
-    "tags": ["política", "valores"],
-    "description": "Nivel de actitudes populistas"
-  },
-  "estado_rol": {
-    "name": "Rol del Estado",
-    "years": [1990, 2023],
-    "tags": ["economía", "valores", "políticas"],
-    "description": "Preferencia sobre rol del Estado en economía"
-  },
-  "impuestos_actitud": {
-    "name": "Actitud hacia impuestos",
-    "years": [2000, 2023],
-    "tags": ["economía", "políticas"],
-    "description": "Disposición a pagar más impuestos"
-  },
-  "evasion_fiscal_tolerancia": {
-    "name": "Tolerancia evasión fiscal",
-    "years": [2000, 2023],
-    "tags": ["valores", "economía"],
-    "description": "Justificación de evasión de impuestos"
-  },
-  "ciencia_confianza": {
-    "name": "Confianza en la ciencia",
-    "years": [2005, 2023],
-    "tags": ["valores", "ciencia"],
-    "description": "Confianza en conocimiento científico"
-  },
-  "tecnologia_actitud": {
-    "name": "Actitud hacia tecnología",
-    "years": [2005, 2023],
-    "tags": ["valores", "tecnología"],
-    "description": "Actitud hacia avances tecnológicos"
-  },
-  "privacidad_preocupacion": {
-    "name": "Preocupación por privacidad",
-    "years": [2010, 2023],
-    "tags": ["valores", "tecnología"],
-    "description": "Preocupación por privacidad de datos"
+    "category": "Seguridad y Justicia",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en Carabineros de Chile?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en Carabineros de Chile?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 86,
+        "periodo": "Jun 2022",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en Carabineros de Chile?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en Carabineros de Chile?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "confianza",
+      "seguridad",
+      "instituciones",
+      "policia"
+    ],
+    "variables_relacionadas": [
+      "p48_confianza_congreso",
+      "p50_percepcion_seguridad"
+    ],
+    "years": [
+      2003,
+      2024
+    ]
+  },
+  "p48_confianza_congreso": {
+    "code": "P48",
+    "name": "Confianza en el Congreso Nacional",
+    "category": "Política e Instituciones",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en el Congreso Nacional?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en el Congreso Nacional?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en el Congreso Nacional?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 90,
+        "periodo": "Oct 2023",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en el Congreso Nacional?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "confianza",
+      "politica",
+      "instituciones",
+      "congreso"
+    ],
+    "variables_relacionadas": [
+      "p15_confianza_instituciones",
+      "p49_confianza_presidente"
+    ],
+    "years": [
+      2003,
+      2023
+    ]
+  },
+  "p50_percepcion_seguridad": {
+    "code": "P50",
+    "name": "Percepción de seguridad en el barrio",
+    "category": "Seguridad y Justicia",
+    "encuestas": [
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "Pensando en su barrio, ¿se siente Ud. seguro o inseguro al caminar solo de noche por donde vive?",
+        "opciones": [
+          "Muy inseguro",
+          "Algo inseguro",
+          "Algo seguro",
+          "Muy seguro",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "Pensando en su barrio, ¿se siente usted seguro o inseguro al caminar solo de noche?",
+        "opciones": [
+          "Muy seguro",
+          "Seguro",
+          "Inseguro",
+          "Muy inseguro",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 94,
+        "periodo": "Jun 2025",
+        "pregunta_exacta": "Pensando en su barrio, ¿se siente usted seguro o inseguro al caminar solo de noche?",
+        "opciones": [
+          "Muy seguro",
+          "Seguro",
+          "Inseguro",
+          "Muy inseguro",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "seguridad",
+      "barrio",
+      "delincuencia",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p47_confianza_carabineros",
+      "p52_victimizacion"
+    ],
+    "years": [
+      2006,
+      2025
+    ],
+    "es_serie_temporal": true
+  },
+  "p60_sistema_salud": {
+    "code": "P60",
+    "name": "Sistema de salud utilizado",
+    "category": "Salud y Sistema de Salud",
+    "encuestas": [
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cuál es el sistema de salud al que usted está afiliado?",
+        "opciones": [
+          "FONASA",
+          "ISAPRE",
+          "Otro",
+          "Ninguno",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": [
+      "salud",
+      "fonasa",
+      "isapre",
+      "sistema"
+    ],
+    "variables_relacionadas": [
+      "p61_satisfaccion_salud"
+    ],
+    "years": [
+      2006,
+      2006
+    ]
+  },
+  "p70_economia_personal": {
+    "code": "P70",
+    "name": "Situación económica del hogar",
+    "category": "Economía y Empleo",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 43,
+        "periodo": "Jul 2002",
+        "pregunta_exacta": "¿Cómo calificaría Ud. la situación económica actual de su hogar?",
+        "opciones": [
+          "Muy mala",
+          "Mala",
+          "Regular",
+          "Buena",
+          "Muy buena",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cómo calificaría Ud. la situación económica actual de su hogar?",
+        "opciones": [
+          "Muy mala",
+          "Mala",
+          "Regular",
+          "Buena",
+          "Muy buena",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "Pensando en la situación económica de su hogar, ¿diría usted que es muy buena, buena, mala o muy mala?",
+        "opciones": [
+          "Muy mala",
+          "Mala",
+          "Buena",
+          "Muy buena",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "Pensando en la situación económica de su hogar, ¿diría usted que es muy buena, buena, mala o muy mala?",
+        "opciones": [
+          "Muy mala",
+          "Mala",
+          "Buena",
+          "Muy buena",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "hogar",
+      "economia",
+      "ingresos",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p71_expectativas_economicas",
+      "p1_satisfaccion_general"
+    ],
+    "years": [
+      2002,
+      2024
+    ]
+  },
+  "p80_desigualdad_ingresos": {
+    "code": "P80",
+    "name": "Percepción de desigualdad de ingresos",
+    "category": "Economía y Empleo",
+    "encuestas": [
+      {
+        "numero": 69,
+        "periodo": "Jul–Ago 2013",
+        "pregunta_exacta": "¿Cree Ud. que las diferencias de ingresos en Chile son demasiado grandes, razonables o demasiado pequeñas?",
+        "opciones": [
+          "Demasiado grandes",
+          "Razonables",
+          "Demasiado pequeñas",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 83,
+        "periodo": "May 2019",
+        "pregunta_exacta": "¿Cree Ud. que las diferencias de ingresos en Chile son demasiado grandes, razonables o demasiado pequeñas?",
+        "opciones": [
+          "Demasiado grandes",
+          "Razonables",
+          "Demasiado pequeñas",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 86,
+        "periodo": "Jun 2022",
+        "pregunta_exacta": "¿Cree usted que la distribución del ingreso en Chile es justa o injusta?",
+        "opciones": [
+          "Muy injusta",
+          "Injusta",
+          "Justa",
+          "Muy justa",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 94,
+        "periodo": "Jun 2025",
+        "pregunta_exacta": "¿Cree usted que la distribución del ingreso en Chile es justa o injusta?",
+        "opciones": [
+          "Muy injusta",
+          "Injusta",
+          "Justa",
+          "Muy justa",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "es_serie_temporal": true,
+    "tags": [
+      "desigualdad",
+      "ingresos",
+      "economia",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p70_economia_personal",
+      "p82_sistema_pensiones_satisfaccion"
+    ],
+    "years": [
+      2013,
+      2025
+    ]
+  },
+  "p82_sistema_pensiones_satisfaccion": {
+    "code": "P82",
+    "name": "Satisfacción con el sistema de pensiones (AFP)",
+    "category": "Economía y Empleo",
+    "encuestas": [
+      {
+        "numero": 77,
+        "periodo": "Jul–Ago 2016",
+        "pregunta_exacta": "En general, ¿qué tan satisfecho está Ud. con el sistema de pensiones en Chile (AFP)?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "pensiones",
+      "afp",
+      "economia",
+      "seguridad_social"
+    ],
+    "variables_relacionadas": [
+      "p80_desigualdad_ingresos",
+      "p10_aprobacion_gobierno"
+    ],
+    "years": [
+      2016,
+      2016
+    ]
+  },
+  "p85_educacion_gratuidad_calidad": {
+    "code": "P85",
+    "name": "Opinión sobre gratuidad y calidad en educación",
+    "category": "Educación",
+    "encuestas": [
+      {
+        "numero": 69,
+        "periodo": "Jul–Ago 2013",
+        "pregunta_exacta": "¿Está Ud. de acuerdo o en desacuerdo con que la educación universitaria en Chile debiera ser gratuita para todos?",
+        "opciones": [
+          "Muy en desacuerdo",
+          "En desacuerdo",
+          "De acuerdo",
+          "Muy de acuerdo",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "educacion",
+      "gratuidad",
+      "calidad",
+      "politica_publica"
+    ],
+    "variables_relacionadas": [
+      "p10_aprobacion_gobierno"
+    ],
+    "years": [
+      2013,
+      2013
+    ]
+  },
+  "p90_medioambiente_preocupacion": {
+    "code": "P90",
+    "name": "Preocupación por el medio ambiente",
+    "category": "Medio Ambiente",
+    "encuestas": [
+      {
+        "numero": 77,
+        "periodo": "Jul–Ago 2016",
+        "pregunta_exacta": "¿Qué tan preocupado está Ud. por el cuidado del medio ambiente en Chile?",
+        "opciones": [
+          "Nada",
+          "Poco",
+          "Algo",
+          "Muy",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "medioambiente",
+      "preocupacion",
+      "sostenibilidad"
+    ],
+    "variables_relacionadas": [
+      "p91_cambio_climatico_importancia"
+    ],
+    "years": [
+      2016,
+      2016
+    ]
+  },
+  "p93_inmigracion_opinion_general": {
+    "code": "P93",
+    "name": "Opinión sobre inmigración",
+    "category": "Valores y Cultura",
+    "encuestas": [
+      {
+        "numero": 83,
+        "periodo": "May 2019",
+        "pregunta_exacta": "¿Cree Ud. que la inmigración en Chile ha sido más bien positiva o negativa para el país?",
+        "opciones": [
+          "Muy negativa",
+          "Negativa",
+          "Positiva",
+          "Muy positiva",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "inmigracion",
+      "valores",
+      "sociedad",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p99_derechos_lgbtq_apoyo"
+    ],
+    "years": [
+      2019,
+      2019
+    ]
+  },
+  "p97_violencia_genero_percepcion": {
+    "code": "P97",
+    "name": "Percepción sobre la violencia de género",
+    "category": "Valores y Cultura",
+    "encuestas": [
+      {
+        "numero": 83,
+        "periodo": "May 2019",
+        "pregunta_exacta": "¿Diría Ud. que la violencia contra las mujeres es un problema muy grave, grave, poco grave o nada grave en Chile?",
+        "opciones": [
+          "Nada grave",
+          "Poco grave",
+          "Grave",
+          "Muy grave",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "genero",
+      "violencia",
+      "igualdad",
+      "sociedad"
+    ],
+    "variables_relacionadas": [
+      "p99_derechos_lgbtq_apoyo"
+    ],
+    "years": [
+      2019,
+      2019
+    ]
+  },
+  "p99_derechos_lgbtq_apoyo": {
+    "code": "P99",
+    "name": "Apoyo a los derechos de las personas LGBTQ+",
+    "category": "Valores y Cultura",
+    "encuestas": [
+      {
+        "numero": 77,
+        "periodo": "Jul–Ago 2016",
+        "pregunta_exacta": "¿Está Ud. de acuerdo o en desacuerdo con que las parejas del mismo sexo puedan casarse legalmente en Chile?",
+        "opciones": [
+          "Muy en desacuerdo",
+          "En desacuerdo",
+          "De acuerdo",
+          "Muy de acuerdo",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 83,
+        "periodo": "May 2019",
+        "pregunta_exacta": "¿Está Ud. de acuerdo o en desacuerdo con que las parejas del mismo sexo puedan casarse legalmente en Chile?",
+        "opciones": [
+          "Muy en desacuerdo",
+          "En desacuerdo",
+          "De acuerdo",
+          "Muy de acuerdo",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "es_serie_temporal": true,
+    "tags": [
+      "lgbtq",
+      "valores",
+      "derechos",
+      "igualdad"
+    ],
+    "variables_relacionadas": [
+      "p97_violencia_genero_percepcion",
+      "p93_inmigracion_opinion_general"
+    ],
+    "years": [
+      2016,
+      2019
+    ]
+  },
+  "p85_covid19_preocupacion": {
+    "code": "P85",
+    "name": "Preocupación por el COVID-19",
+    "category": "Salud y Sistema de Salud",
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "¿Cuán preocupado está usted por contagiarse de coronavirus (COVID-19)?",
+        "opciones": [
+          "Muy preocupado",
+          "Algo preocupado",
+          "Poco preocupado",
+          "Nada preocupado",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "salud",
+      "pandemia",
+      "covid19"
+    ],
+    "variables_relacionadas": [
+      "p86_confianza_manejo_covid"
+    ],
+    "years": [
+      2020,
+      2020
+    ]
+  },
+  "p86_confianza_manejo_covid": {
+    "code": "P86",
+    "name": "Confianza en el manejo del COVID-19 por el gobierno",
+    "category": "Salud y Sistema de Salud",
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "¿Qué tan bien cree usted que el gobierno ha manejado la pandemia del coronavirus (COVID-19)?",
+        "opciones": [
+          "Muy mal",
+          "Mal",
+          "Bien",
+          "Muy bien",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "salud",
+      "gobierno",
+      "pandemia"
+    ],
+    "variables_relacionadas": [
+      "p85_covid19_preocupacion"
+    ],
+    "years": [
+      2020,
+      2020
+    ]
+  },
+  "p90_apoyo_proceso_constituyente": {
+    "code": "P90",
+    "name": "Apoyo al proceso constituyente",
+    "category": "Política e Instituciones",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 86,
+        "periodo": "Jun 2022",
+        "pregunta_exacta": "¿Usted aprueba o rechaza la nueva propuesta de Constitución elaborada por la Convención Constitucional?",
+        "opciones": [
+          "Aprueba",
+          "Rechaza",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Está a favor o en contra de tener una nueva Constitución?",
+        "opciones": [
+          "A favor",
+          "En contra",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": [
+      "constitucion",
+      "proceso",
+      "politica"
+    ],
+    "variables_relacionadas": [
+      "p91_expectativas_constitucion"
+    ],
+    "years": [
+      2022,
+      2024
+    ]
+  },
+  "p91_expectativas_constitucion": {
+    "code": "P91",
+    "name": "Expectativas frente a nueva Constitución",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Cree usted que una nueva Constitución mejorará, empeorará o no cambiará la situación del país?",
+        "opciones": [
+          "Mejorará",
+          "Empeorará",
+          "No cambiará",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "constitucion",
+      "expectativas",
+      "politica"
+    ],
+    "variables_relacionadas": [
+      "p90_apoyo_proceso_constituyente"
+    ],
+    "years": [
+      2024,
+      2024
+    ]
+  },
+  "p92_salud_mental": {
+    "code": "P92",
+    "name": "Estado de salud mental y emocional",
+    "category": "Salud y Sistema de Salud",
+    "encuestas": [
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "Durante las últimas dos semanas, ¿con qué frecuencia ha sentido tristeza o desesperanza?",
+        "opciones": [
+          "Nunca",
+          "Algunos días",
+          "Más de la mitad de los días",
+          "Casi todos los días",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "salud",
+      "emociones",
+      "bienestar"
+    ],
+    "variables_relacionadas": [
+      "p1_satisfaccion_general"
+    ],
+    "years": [
+      2024,
+      2024
+    ]
+  },
+  "p93_inflacion_preocupacion": {
+    "code": "P93",
+    "name": "Preocupación por la inflación y costo de vida",
+    "category": "Economía y Empleo",
+    "encuestas": [
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Cuánto le preocupa a usted el alza del costo de la vida o la inflación?",
+        "opciones": [
+          "Mucho",
+          "Algo",
+          "Poco",
+          "Nada",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "economia",
+      "inflacion",
+      "preocupacion"
+    ],
+    "variables_relacionadas": [
+      "p70_economia_personal"
+    ],
+    "years": [
+      2024,
+      2024
+    ]
+  },
+  "p94_migracion_opinion": {
+    "code": "P94",
+    "name": "Opinión sobre inmigración en Chile",
+    "category": "Valores y Cultura",
+    "encuestas": [
+      {
+        "numero": 90,
+        "periodo": "Oct 2023",
+        "pregunta_exacta": "¿Cree usted que la inmigración hace bien o mal al país?",
+        "opciones": [
+          "Hace bien",
+          "Hace mal",
+          "Depende",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": [
+      "migracion",
+      "sociedad",
+      "valores"
+    ],
+    "variables_relacionadas": [
+      "p50_percepcion_seguridad"
+    ],
+    "years": [
+      2023,
+      2023
+    ]
+  },
+  "p95_narcotrafico_preocupacion": {
+    "code": "P95",
+    "name": "Preocupación por el narcotráfico",
+    "category": "Seguridad y Justicia",
+    "encuestas": [
+      {
+        "numero": 94,
+        "periodo": "Jun 2025",
+        "pregunta_exacta": "¿Qué tan preocupado está usted por el aumento del narcotráfico en su comuna?",
+        "opciones": [
+          "Muy preocupado",
+          "Algo preocupado",
+          "Poco preocupado",
+          "Nada preocupado",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "seguridad",
+      "narcotrafico",
+      "delito"
+    ],
+    "variables_relacionadas": [
+      "p50_percepcion_seguridad"
+    ],
+    "years": [
+      2025,
+      2025
+    ]
   }
 }

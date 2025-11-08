@@ -1,0 +1,262 @@
+{
+  "p1_satisfaccion_general": {
+    "code": "P1",
+    "name": "Satisfacción general con la vida",
+    "category": "Valores y Cultura",
+    "encuestas": [
+      {
+        "numero": 29,
+        "periodo": "Nov–Dic 1994",
+        "pregunta_exacta": "En general, considerando todos los aspectos de su vida, ¿cuán satisfecho o insatisfecho se encuentra usted actualmente?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Ni bien ni mal",
+          "Satisfecho",
+          "Muy satisfecho",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 30,
+        "periodo": "May–Jun 1995",
+        "pregunta_exacta": "En general, considerando todos los aspectos de su vida, ¿cuán satisfecho o insatisfecho se encuentra usted actualmente?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Ni bien ni mal",
+          "Satisfecho",
+          "Muy satisfecho",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 34,
+        "periodo": "Jun–Jul 1997",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "bienestar",
+      "vida",
+      "satisfaccion",
+      "felicidad"
+    ],
+    "variables_relacionadas": [
+      "p5_situacion_economica_hogar",
+      "p6_expectativas_economicas"
+    ],
+    "years": [
+      1994,
+      1999
+    ],
+    "es_serie_temporal": true
+  },
+  "p10_aprobacion_gobierno": {
+    "code": "P10",
+    "name": "Aprobación de la gestión presidencial",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 34,
+        "periodo": "Jun–Jul 1997",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Eduardo Frei Ruiz-Tagle está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "No aprueba ni desaprueba",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Eduardo Frei Ruiz-Tagle está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "No aprueba ni desaprueba",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": [
+      "politica",
+      "gobierno",
+      "presidente",
+      "aprobacion"
+    ],
+    "variables_relacionadas": [
+      "p15_confianza_instituciones",
+      "p16_percepcion_corrupcion"
+    ],
+    "years": [
+      1994,
+      1999
+    ],
+    "es_serie_temporal": true
+  },
+  "p15_confianza_instituciones": {
+    "code": "P15",
+    "name": "Confianza en instituciones",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 34,
+        "periodo": "Jun–Jul 1997",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en las siguientes instituciones?",
+        "opciones": [
+          "Mucha",
+          "Algo",
+          "Poca",
+          "Ninguna",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en las siguientes instituciones o personas?",
+        "opciones": [
+          "Mucha",
+          "Algo",
+          "Poca",
+          "Ninguna",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "confianza",
+      "instituciones",
+      "politica",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p16_percepcion_corrupcion",
+      "p10_aprobacion_gobierno"
+    ],
+    "years": [
+      1997,
+      1999
+    ],
+    "es_serie_temporal": true
+  },
+  "p16_percepcion_corrupcion": {
+    "code": "P16",
+    "name": "Percepción de corrupción",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 34,
+        "periodo": "Jun–Jul 1997",
+        "pregunta_exacta": "¿Diría usted que en Chile hay mucha, algo, poca o ninguna corrupción en el gobierno?",
+        "opciones": [
+          "Mucha",
+          "Algo",
+          "Poca",
+          "Ninguna",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "¿Diría usted que en Chile hay mucha, algo, poca o ninguna corrupción en el gobierno?",
+        "opciones": [
+          "Mucha",
+          "Algo",
+          "Poca",
+          "Ninguna",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "corrupcion",
+      "gobierno",
+      "politica",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p15_confianza_instituciones",
+      "p10_aprobacion_gobierno"
+    ],
+    "years": [
+      1997,
+      1999
+    ],
+    "es_serie_temporal": true
+  },
+  "p20_problemas_principales_pais": {
+    "code": "P20",
+    "name": "Principales problemas del país",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 37,
+        "periodo": "Abr–May 1999",
+        "pregunta_exacta": "¿Cuál cree usted que es el principal problema que tiene hoy el país?",
+        "opciones": [
+          "Respuesta abierta codificada",
+          "No sabe",
+          "No contesta"
+        ],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": [
+      "problemas",
+      "pais",
+      "politica",
+      "agenda_publica"
+    ],
+    "variables_relacionadas": [
+      "p10_aprobacion_gobierno",
+      "p16_percepcion_corrupcion"
+    ],
+    "years": [
+      1999,
+      1999
+    ]
+  }
+}

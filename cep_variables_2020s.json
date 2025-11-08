@@ -1,0 +1,346 @@
+{
+  "p1_satisfaccion_general": {
+    "code": "P1",
+    "name": "Satisfacción general con la vida",
+    "category": "Valores y Cultura",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": ["Muy insatisfecho", "Insatisfecho", "Satisfecho", "Muy satisfecho", "NS/NR"],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": ["Muy insatisfecho", "Insatisfecho", "Satisfecho", "Muy satisfecho", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["bienestar", "vida", "satisfaccion"],
+    "variables_relacionadas": ["p70_economia_personal"],
+    "years": [2020, 2024]
+  },
+  "p10_aprobacion_gobierno": {
+    "code": "P10",
+    "name": "Aprobación del gobierno",
+    "category": "Política e Instituciones",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "Independientemente de su posición política, ¿aprueba o desaprueba la forma en que el Presidente está conduciendo su gobierno?",
+        "opciones": ["Aprueba", "Desaprueba", "NS/NR"],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 94,
+        "periodo": "Jun 2025",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma en que el Presidente Boric está conduciendo su gobierno?",
+        "opciones": ["Aprueba", "Desaprueba", "NS/NR"],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": ["politica", "gobierno", "presidente"],
+    "variables_relacionadas": ["p15_confianza_instituciones"],
+    "years": [2020, 2025]
+  },
+  "p15_confianza_instituciones": {
+    "code": "P15",
+    "name": "Confianza en instituciones",
+    "category": "Política e Instituciones",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en las siguientes instituciones?",
+        "opciones": ["Mucha", "Bastante", "Poca", "Ninguna", "NS/NR"],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en las siguientes instituciones?",
+        "opciones": ["Mucha", "Bastante", "Poca", "Ninguna", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["confianza", "instituciones", "politica"],
+    "variables_relacionadas": ["p47_confianza_carabineros", "p48_confianza_congreso"],
+    "years": [2020, 2024]
+  },
+  "p47_confianza_carabineros": {
+    "code": "P47",
+    "name": "Confianza en Carabineros",
+    "category": "Seguridad y Justicia",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 86,
+        "periodo": "Jun 2022",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en Carabineros de Chile?",
+        "opciones": ["Mucha", "Bastante", "Poca", "Ninguna", "NS/NR"],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en Carabineros de Chile?",
+        "opciones": ["Mucha", "Bastante", "Poca", "Ninguna", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["confianza", "seguridad", "policia"],
+    "variables_relacionadas": ["p48_confianza_congreso", "p50_percepcion_seguridad"],
+    "years": [2022, 2024]
+  },
+  "p48_confianza_congreso": {
+    "code": "P48",
+    "name": "Confianza en el Congreso Nacional",
+    "category": "Política e Instituciones",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en el Congreso Nacional?",
+        "opciones": ["Mucha", "Bastante", "Poca", "Ninguna", "NS/NR"],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 90,
+        "periodo": "Oct 2023",
+        "pregunta_exacta": "¿Cuánta confianza tiene usted en el Congreso Nacional?",
+        "opciones": ["Mucha", "Bastante", "Poca", "Ninguna", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["confianza", "politica", "instituciones"],
+    "variables_relacionadas": ["p15_confianza_instituciones"],
+    "years": [2020, 2023]
+  },
+  "p50_percepcion_seguridad": {
+    "code": "P50",
+    "name": "Percepción de seguridad en el barrio",
+    "category": "Seguridad y Justicia",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "Pensando en su barrio, ¿se siente usted seguro o inseguro al caminar solo de noche?",
+        "opciones": ["Muy seguro", "Seguro", "Inseguro", "Muy inseguro", "NS/NR"],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 94,
+        "periodo": "Jun 2025",
+        "pregunta_exacta": "Pensando en su barrio, ¿se siente usted seguro o inseguro al caminar solo de noche?",
+        "opciones": ["Muy seguro", "Seguro", "Inseguro", "Muy inseguro", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["seguridad", "barrio", "percepcion"],
+    "variables_relacionadas": ["p47_confianza_carabineros"],
+    "years": [2020, 2025]
+  },
+  "p70_economia_personal": {
+    "code": "P70",
+    "name": "Situación económica personal",
+    "category": "Economía y Empleo",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "Pensando en la situación económica de su hogar, ¿diría usted que es muy buena, buena, mala o muy mala?",
+        "opciones": ["Muy mala", "Mala", "Buena", "Muy buena", "NS/NR"],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "Pensando en la situación económica de su hogar, ¿diría usted que es muy buena, buena, mala o muy mala?",
+        "opciones": ["Muy mala", "Mala", "Buena", "Muy buena", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["economia", "hogar", "bienestar"],
+    "variables_relacionadas": ["p1_satisfaccion_general", "p80_desigualdad_ingresos"],
+    "years": [2020, 2024]
+  },
+  "p80_desigualdad_ingresos": {
+    "code": "P80",
+    "name": "Percepción de desigualdad de ingresos",
+    "category": "Economía y Empleo",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 86,
+        "periodo": "Jun 2022",
+        "pregunta_exacta": "¿Cree usted que la distribución del ingreso en Chile es justa o injusta?",
+        "opciones": ["Muy injusta", "Injusta", "Justa", "Muy justa", "NS/NR"],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 94,
+        "periodo": "Jun 2025",
+        "pregunta_exacta": "¿Cree usted que la distribución del ingreso en Chile es justa o injusta?",
+        "opciones": ["Muy injusta", "Injusta", "Justa", "Muy justa", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["desigualdad", "ingresos", "justicia"],
+    "variables_relacionadas": ["p70_economia_personal"],
+    "years": [2022, 2025]
+  },
+  "p85_covid19_preocupacion": {
+    "code": "P85",
+    "name": "Preocupación por el COVID-19",
+    "category": "Salud y Sistema de Salud",
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "¿Cuán preocupado está usted por contagiarse de coronavirus (COVID-19)?",
+        "opciones": ["Muy preocupado", "Algo preocupado", "Poco preocupado", "Nada preocupado", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["salud", "pandemia", "covid19"],
+    "variables_relacionadas": ["p86_confianza_manejo_covid"],
+    "years": [2020, 2020]
+  },
+  "p86_confianza_manejo_covid": {
+    "code": "P86",
+    "name": "Confianza en el manejo del COVID-19 por el gobierno",
+    "category": "Salud y Sistema de Salud",
+    "encuestas": [
+      {
+        "numero": 85,
+        "periodo": "Nov 2020",
+        "pregunta_exacta": "¿Qué tan bien cree usted que el gobierno ha manejado la pandemia del coronavirus (COVID-19)?",
+        "opciones": ["Muy mal", "Mal", "Bien", "Muy bien", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["salud", "gobierno", "pandemia"],
+    "variables_relacionadas": ["p85_covid19_preocupacion"],
+    "years": [2020, 2020]
+  },
+  "p90_apoyo_proceso_constituyente": {
+    "code": "P90",
+    "name": "Apoyo al proceso constituyente",
+    "category": "Política e Instituciones",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 86,
+        "periodo": "Jun 2022",
+        "pregunta_exacta": "¿Usted aprueba o rechaza la nueva propuesta de Constitución elaborada por la Convención Constitucional?",
+        "opciones": ["Aprueba", "Rechaza", "NS/NR"],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Está a favor o en contra de tener una nueva Constitución?",
+        "opciones": ["A favor", "En contra", "NS/NR"],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": ["constitucion", "proceso", "politica"],
+    "variables_relacionadas": ["p91_expectativas_constitucion"],
+    "years": [2022, 2024]
+  },
+  "p91_expectativas_constitucion": {
+    "code": "P91",
+    "name": "Expectativas frente a nueva Constitución",
+    "category": "Política e Instituciones",
+    "encuestas": [
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Cree usted que una nueva Constitución mejorará, empeorará o no cambiará la situación del país?",
+        "opciones": ["Mejorará", "Empeorará", "No cambiará", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["constitucion", "expectativas", "politica"],
+    "variables_relacionadas": ["p90_apoyo_proceso_constituyente"],
+    "years": [2024, 2024]
+  },
+  "p92_salud_mental": {
+    "code": "P92",
+    "name": "Estado de salud mental y emocional",
+    "category": "Salud y Sistema de Salud",
+    "encuestas": [
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "Durante las últimas dos semanas, ¿con qué frecuencia ha sentido tristeza o desesperanza?",
+        "opciones": ["Nunca", "Algunos días", "Más de la mitad de los días", "Casi todos los días", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["salud", "emociones", "bienestar"],
+    "variables_relacionadas": ["p1_satisfaccion_general"],
+    "years": [2024, 2024]
+  },
+  "p93_inflacion_preocupacion": {
+    "code": "P93",
+    "name": "Preocupación por la inflación y costo de vida",
+    "category": "Economía y Empleo",
+    "encuestas": [
+      {
+        "numero": 91,
+        "periodo": "Jul 2024",
+        "pregunta_exacta": "¿Cuánto le preocupa a usted el alza del costo de la vida o la inflación?",
+        "opciones": ["Mucho", "Algo", "Poco", "Nada", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["economia", "inflacion", "preocupacion"],
+    "variables_relacionadas": ["p70_economia_personal"],
+    "years": [2024, 2024]
+  },
+  "p94_migracion_opinion": {
+    "code": "P94",
+    "name": "Opinión sobre inmigración en Chile",
+    "category": "Valores y Cultura",
+    "encuestas": [
+      {
+        "numero": 90,
+        "periodo": "Oct 2023",
+        "pregunta_exacta": "¿Cree usted que la inmigración hace bien o mal al país?",
+        "opciones": ["Hace bien", "Hace mal", "Depende", "NS/NR"],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": ["migracion", "sociedad", "valores"],
+    "variables_relacionadas": ["p50_percepcion_seguridad"],
+    "years": [2023, 2023]
+  },
+  "p95_narcotrafico_preocupacion": {
+    "code": "P95",
+    "name": "Preocupación por el narcotráfico",
+    "category": "Seguridad y Justicia",
+    "encuestas": [
+      {
+        "numero": 94,
+        "periodo": "Jun 2025",
+        "pregunta_exacta": "¿Qué tan preocupado está usted por el aumento del narcotráfico en su comuna?",
+        "opciones": ["Muy preocupado", "Algo preocupado", "Poco preocupado", "Nada preocupado", "NS/NR"],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": ["seguridad", "narcotrafico", "delito"],
+    "variables_relacionadas": ["p50_percepcion_seguridad"],
+    "years": [2025, 2025]
+  }
+}

@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth, signInAnonymously, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { getFunctions } from 'firebase/functions';
+import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
 
 // Configuración de Firebase desde variables de entorno
 const firebaseConfig = {
@@ -21,7 +21,7 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const functions = getFunctions(app, 'us-central1');
 
-// Para desarrollo local con emulador, descomentar la siguiente línea:
+// Para desarrollo local con emulador (comentado - emulador con errores)
 // connectFunctionsEmulator(functions, 'localhost', 5001);
 
 // Función helper para login anónimo

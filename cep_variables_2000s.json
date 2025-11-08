@@ -1,0 +1,382 @@
+{
+  "p1_satisfaccion_general": {
+    "code": "P1",
+    "name": "Satisfacción general con la vida",
+    "category": "Valores y Cultura",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 43,
+        "periodo": "Jul 2002",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "En general, considerando todos los aspectos de su vida, ¿diría usted que está satisfecho o insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "Pensando en su vida en general, ¿diría usted que está muy satisfecho, satisfecho, insatisfecho o muy insatisfecho?",
+        "opciones": [
+          "Muy insatisfecho",
+          "Insatisfecho",
+          "Satisfecho",
+          "Muy satisfecho",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "bienestar",
+      "vida",
+      "satisfaccion",
+      "felicidad"
+    ],
+    "variables_relacionadas": [
+      "p70_economia_personal",
+      "p10_aprobacion_gobierno"
+    ],
+    "years": [
+      2002,
+      2006
+    ]
+  },
+  "p10_aprobacion_gobierno": {
+    "code": "P10",
+    "name": "Aprobación de la gestión presidencial",
+    "category": "Política e Instituciones",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 43,
+        "periodo": "Jul 2002",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Ricardo Lagos está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como el Presidente Ricardo Lagos está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Usted aprueba o desaprueba la forma como la Presidenta Michelle Bachelet está conduciendo su gobierno?",
+        "opciones": [
+          "Aprueba",
+          "Desaprueba",
+          "Ni aprueba ni desaprueba",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": [
+      "politica",
+      "gobierno",
+      "presidente",
+      "aprobacion"
+    ],
+    "variables_relacionadas": [
+      "p15_confianza_instituciones",
+      "p47_confianza_carabineros"
+    ],
+    "years": [
+      2002,
+      2006
+    ]
+  },
+  "p15_confianza_instituciones": {
+    "code": "P15",
+    "name": "Confianza en instituciones",
+    "category": "Política e Instituciones",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en las siguientes instituciones?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en las siguientes instituciones?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "confianza",
+      "instituciones",
+      "politica",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p47_confianza_carabineros",
+      "p48_confianza_congreso"
+    ],
+    "years": [
+      2003,
+      2006
+    ]
+  },
+  "p47_confianza_carabineros": {
+    "code": "P47",
+    "name": "Confianza en Carabineros",
+    "category": "Seguridad y Justicia",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en Carabineros de Chile?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en Carabineros de Chile?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "confianza",
+      "seguridad",
+      "instituciones",
+      "policia"
+    ],
+    "variables_relacionadas": [
+      "p48_confianza_congreso",
+      "p50_percepcion_seguridad"
+    ],
+    "years": [
+      2003,
+      2006
+    ]
+  },
+  "p48_confianza_congreso": {
+    "code": "P48",
+    "name": "Confianza en el Congreso Nacional",
+    "category": "Política e Instituciones",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 45,
+        "periodo": "Jun–Jul 2003",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en el Congreso Nacional?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cuánta confianza tiene Ud. en el Congreso Nacional?",
+        "opciones": [
+          "Mucha",
+          "Bastante",
+          "Poca",
+          "Ninguna",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "confianza",
+      "politica",
+      "instituciones",
+      "congreso"
+    ],
+    "variables_relacionadas": [
+      "p15_confianza_instituciones",
+      "p49_confianza_presidente"
+    ],
+    "years": [
+      2003,
+      2006
+    ]
+  },
+  "p50_percepcion_seguridad": {
+    "code": "P50",
+    "name": "Percepción de seguridad en el barrio",
+    "category": "Seguridad y Justicia",
+    "encuestas": [
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "Pensando en su barrio, ¿se siente Ud. seguro o inseguro al caminar solo de noche por donde vive?",
+        "opciones": [
+          "Muy inseguro",
+          "Algo inseguro",
+          "Algo seguro",
+          "Muy seguro",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "seguridad",
+      "barrio",
+      "delincuencia",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p47_confianza_carabineros",
+      "p52_victimizacion"
+    ],
+    "years": [
+      2006,
+      2006
+    ]
+  },
+  "p60_sistema_salud": {
+    "code": "P60",
+    "name": "Sistema de salud utilizado",
+    "category": "Salud y Sistema de Salud",
+    "encuestas": [
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cuál es el sistema de salud al que usted está afiliado?",
+        "opciones": [
+          "FONASA",
+          "ISAPRE",
+          "Otro",
+          "Ninguno",
+          "NS/NR"
+        ],
+        "tipo": "categórica"
+      }
+    ],
+    "tags": [
+      "salud",
+      "fonasa",
+      "isapre",
+      "sistema"
+    ],
+    "variables_relacionadas": [
+      "p61_satisfaccion_salud"
+    ],
+    "years": [
+      2006,
+      2006
+    ]
+  },
+  "p70_economia_personal": {
+    "code": "P70",
+    "name": "Situación económica del hogar",
+    "category": "Economía y Empleo",
+    "es_serie_temporal": true,
+    "encuestas": [
+      {
+        "numero": 43,
+        "periodo": "Jul 2002",
+        "pregunta_exacta": "¿Cómo calificaría Ud. la situación económica actual de su hogar?",
+        "opciones": [
+          "Muy mala",
+          "Mala",
+          "Regular",
+          "Buena",
+          "Muy buena",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      },
+      {
+        "numero": 52,
+        "periodo": "Jun–Jul 2006",
+        "pregunta_exacta": "¿Cómo calificaría Ud. la situación económica actual de su hogar?",
+        "opciones": [
+          "Muy mala",
+          "Mala",
+          "Regular",
+          "Buena",
+          "Muy buena",
+          "NS/NR"
+        ],
+        "tipo": "ordinal"
+      }
+    ],
+    "tags": [
+      "hogar",
+      "economia",
+      "ingresos",
+      "percepcion"
+    ],
+    "variables_relacionadas": [
+      "p71_expectativas_economicas",
+      "p1_satisfaccion_general"
+    ],
+    "years": [
+      2002,
+      2006
+    ]
+  }
+}
