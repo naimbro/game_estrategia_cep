@@ -73,7 +73,7 @@ export default function Home() {
                 <TrendingUp className="w-8 h-8 text-cyan-400" />
               </div>
               <div>
-                <h3 className="font-bold text-white mb-2">10 Escenarios Realistas</h3>
+                <h3 className="font-bold text-white mb-2">8 Escenarios Realistas</h3>
                 <p className="text-sm text-gray-400">
                   Enfrenta desafíos basados en casos reales de política pública en Chile.
                 </p>
@@ -87,7 +87,7 @@ export default function Home() {
               <div>
                 <h3 className="font-bold text-white mb-2">4 Jueces Expertos IA</h3>
                 <p className="text-sm text-gray-400">
-                  Clara Datos, Analytikos, Insighta y Narrativo evaluarán tus propuestas.
+                  Leopoldo Cerros, Carolina Tohó, Daniel Matabuena y Profe Naim evaluarán tus propuestas.
                 </p>
               </div>
             </div>

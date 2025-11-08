@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Send, Loader, AlertCircle, Play, Users } from 'lucide-react';
+import { Send, Loader, AlertCircle, Play, Users, Pause, Trophy, SkipForward } from 'lucide-react';
 import { useGame } from '../hooks/useGame';
 import { getScenarioForRound, submitRoundSubmission, processRound, allPlayersSubmitted } from '../lib/gameLogic';
 import { evaluateSubmission } from '../lib/openaiJudges';
@@ -31,6 +31,7 @@ export default function Round() {
   const [processing, setProcessing] = useState(false);
   const [evaluationFeedbacks, setEvaluationFeedbacks] = useState<JudgeFeedback[] | null>(null);
   const [showScoreReveal, setShowScoreReveal] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   const scenario = getScenarioForRound(currentRound);
   const round = game?.rounds[currentRound];
@@ -155,6 +156,29 @@ export default function Round() {
     }
   };
 
+  // Forzar finalización del juego (ADMIN)
+  const handleForceFinish = async () => {
+    if (!gameCode || !isAdmin) return;
+    if (!confirm('¿Terminar el juego ahora y mostrar podio final?')) return;
+
+    setProcessing(true);
+    try {
+      const { doc, updateDoc } = await import('firebase/firestore');
+      const { db } = await import('../lib/firebase');
+
+      await updateDoc(doc(db, 'games', gameCode), {
+        state: 'completed',
+        updatedAt: new Date()
+      });
+
+      navigate('/end');
+    } catch (error) {
+      console.error('Error al finalizar juego:', error);
+      alert('Error al finalizar el juego');
+      setProcessing(false);
+    }
+  };
+
   if (gameLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -209,6 +233,7 @@ export default function Round() {
               <Timer
                 endTime={endTime}
                 onExpire={handleTimeExpire}
+                isPaused={isPaused}
               />
             )}
           </div>
@@ -263,17 +288,17 @@ export default function Round() {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold text-white mb-2">
-                    Describe tu propuesta de análisis
+                    Propuesta de Análisis
                   </label>
                   <textarea
                     value={proposal}
                     onChange={(e) => setProposal(e.target.value)}
-                    placeholder="Describe tu pregunta de investigación y estrategia de análisis. Por ejemplo: '¿Cómo ha evolucionado la confianza en el sistema de salud público entre 2010 y 2023? Usaría las variables de confianza institucional y salud, comparando por grupos socioeconómicos y regiones...'"
-                    className="input-field w-full h-48 resize-none"
+                    placeholder={`Debes incluir:\n• Pregunta de investigación\n• Variables específicas del CEP que usarás (con códigos)\n• Estrategia de cruces y análisis\n• Tipo de gráfico propuesto\n• Mensaje clave / hallazgo esperado\n\nEjemplo:\n"Pregunta: ¿Cómo varía la confianza en Carabineros según experiencia de victimización?\n\nVariables: Usaría la pregunta P47 'Confianza en Carabineros' de CEP 89 (Jul 2024) cruzada con P52 'Victimización en últimos 12 meses', y segmentaría por NSE (variable sociodemográfica).\n\nEstrategia: Compararía el % de confianza alta (mucha + bastante) entre víctimas y no víctimas, desagregado por NSE. También analizaría tendencias temporales usando CEP 88 y 87 para ver si la brecha ha aumentado...\n\nGráfico: Gráfico de barras agrupadas, mostrando niveles de confianza (eje Y) por condición de victimización (eje X), con barras separadas por NSE.\n\nMensaje clave: Esperaría encontrar que las víctimas tienen significativamente menor confianza, especialmente en NSE C3-D, lo que sugiere necesidad de campaña diferenciada por segmento."`}
+                    className="input-field w-full h-64 resize-none"
                     disabled={isSubmitting || hasSubmitted}
                   />
                   <p className="text-xs text-gray-400 mt-2">
-                    Incluye: pregunta de investigación, variables a usar, comparaciones o cruces relevantes
+                    Incluye códigos de variables (ej: P47), tipo de gráfico, y cruces específicos
                   </p>
                 </div>
 
@@ -322,25 +347,58 @@ export default function Round() {
                 <h3 className="text-lg font-bold text-yellow-300 mb-4 flex items-center gap-2">
                   👑 Controles de Profesor
                 </h3>
-                <button
-                  onClick={handleProcessRound}
-                  disabled={processing || submittedCount === 0}
-                  className="primary-button w-full flex items-center justify-center gap-2 disabled:opacity-50"
-                >
-                  {processing ? (
-                    <>
-                      <Loader className="w-5 h-5 animate-spin" />
-                      Procesando ronda...
-                    </>
-                  ) : (
-                    <>
-                      <Play className="w-5 h-5" />
-                      {allSubmitted ? 'Procesar Ronda (Todos enviaron)' : `Procesar Ronda (${submittedCount}/${activePlayers.length})`}
-                    </>
-                  )}
-                </button>
-                <p className="text-xs text-gray-400 mt-2 text-center">
-                  También se procesa automáticamente cuando expira el tiempo
+
+                <div className="space-y-3">
+                  {/* Pausar/Reanudar Timer */}
+                  <button
+                    onClick={() => setIsPaused(!isPaused)}
+                    className="primary-button w-full flex items-center justify-center gap-2"
+                  >
+                    {isPaused ? (
+                      <>
+                        <Play className="w-5 h-5" />
+                        Reanudar Tiempo
+                      </>
+                    ) : (
+                      <>
+                        <Pause className="w-5 h-5" />
+                        Pausar Tiempo
+                      </>
+                    )}
+                  </button>
+
+                  {/* Procesar Ronda */}
+                  <button
+                    onClick={handleProcessRound}
+                    disabled={processing || submittedCount === 0}
+                    className="primary-button w-full flex items-center justify-center gap-2 disabled:opacity-50"
+                  >
+                    {processing ? (
+                      <>
+                        <Loader className="w-5 h-5 animate-spin" />
+                        Procesando...
+                      </>
+                    ) : (
+                      <>
+                        <SkipForward className="w-5 h-5" />
+                        {allSubmitted ? 'Ir a Resultados (Todos enviaron)' : `Ir a Resultados (${submittedCount}/${activePlayers.length})`}
+                      </>
+                    )}
+                  </button>
+
+                  {/* Finalizar Juego */}
+                  <button
+                    onClick={handleForceFinish}
+                    disabled={processing}
+                    className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all disabled:opacity-50 w-full flex items-center justify-center gap-2"
+                  >
+                    <Trophy className="w-5 h-5" />
+                    Terminar Juego (Podio Final)
+                  </button>
+                </div>
+
+                <p className="text-xs text-gray-400 mt-3 text-center">
+                  El tiempo pausado permite explicar las variables a los estudiantes
                 </p>
               </motion.div>
             )}
