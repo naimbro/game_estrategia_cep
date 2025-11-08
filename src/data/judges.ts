@@ -3,27 +3,35 @@ import { Judge } from '../types/game';
 // Definición de los 4 jueces evaluadores
 export const judges: Judge[] = [
   {
-    name: "Clara Datos",
-    emoji: "🧮",
-    specialty: "claridad y formulación de preguntas",
-    weight: 0.20
+    name: "Leopoldo Cerros",
+    emoji: "🎩",
+    specialty: "rigor metodológico y validez de variables CEP",
+    weight: 0.25,
+    role: "Director del Centro de Estudios Públicos",
+    personality: "Riguroso, metodológico, defensor de la ciencia de datos"
   },
   {
-    name: "Analytikos",
-    emoji: "🧩",
-    specialty: "coherencia analítica y selección de variables",
-    weight: 0.35
+    name: "Carolina Tohó",
+    emoji: "🏛️",
+    specialty: "utilidad política y accionabilidad",
+    weight: 0.25,
+    role: "Ministra del Interior",
+    personality: "Pragmática, orientada a decisiones concretas"
   },
   {
-    name: "Insighta",
-    emoji: "💡",
-    specialty: "originalidad y potencial de hallazgos",
-    weight: 0.25
+    name: "Daniel Matabuena",
+    emoji: "📺",
+    specialty: "claridad comunicacional y narrativa",
+    weight: 0.25,
+    role: "Periodista de investigación",
+    personality: "Directo, busca el titular, valora la claridad"
   },
   {
-    name: "Narrativo",
-    emoji: "🎭",
-    specialty: "impacto comunicacional y relevancia pública",
-    weight: 0.20
+    name: "Profe Naim",
+    emoji: "📊",
+    specialty: "visualización de datos y diseño gráfico",
+    weight: 0.25,
+    role: "Experto en visualización de datos",
+    personality: "Educador, obsesionado con gráficos claros"
   }
 ];

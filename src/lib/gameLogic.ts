@@ -3,7 +3,7 @@ import { db } from './firebase';
 import { Game, Player, GameRound, Submission, LeaderboardEntry } from '../types/game';
 import { scenarios } from '../data/scenarios';
 
-const TOTAL_ROUNDS = 10;
+const TOTAL_ROUNDS = 8;
 const ROUND_DURATION_MS = 3 * 60 * 1000; // 3 minutos
 
 // Generar código único de 6 caracteres

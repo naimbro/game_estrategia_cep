@@ -1,19 +1,40 @@
 import { Timestamp } from 'firebase/firestore';
 
+// Respuesta ideal por escenario (para evaluación de jueces)
+export interface IdealResponse {
+  pregunta_investigacion: string;
+  variables_esperadas: string[];
+  cruces_esperados: string[];
+  graficos_apropiados: string[];
+  insights_clave: string[];
+  errores_comunes_a_penalizar: string[];
+}
+
 // Escenario narrativo para cada ronda
 export interface Scenario {
   id: number;
   title: string;
   text: string;
   category: string;
+  respuesta_ideal?: IdealResponse;
 }
 
 // Variable del diccionario CEP
 export interface CEPVariable {
   code: string;
   name: string;
-  years: [number, number];
+  category: string;
+  encuestas: Array<{
+    numero: number;
+    periodo: string;
+    pregunta_exacta: string;
+    opciones: string[];
+    tipo: 'ordinal' | 'categórica' | 'numérica';
+  }>;
   tags: string[];
+  variables_relacionadas: string[];
+  years: [number, number];
+  es_serie_temporal?: boolean;
   description?: string;
 }
 
@@ -23,6 +44,8 @@ export interface Judge {
   emoji: string;
   specialty: string;
   weight: number;
+  role?: string;
+  personality?: string;
 }
 
 // Feedback de un juez
