@@ -1,5 +1,6 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+import fetch from 'node-fetch';
 
 admin.initializeApp();
 
@@ -29,28 +30,28 @@ interface Scenario {
 // Jueces (copiados de src/data/judges.ts)
 const judges: Judge[] = [
   {
-    name: 'Clara Datos',
-    emoji: '📊',
-    specialty: 'Claridad y formulación de preguntas',
-    weight: 0.20
-  },
-  {
-    name: 'Analytikos',
-    emoji: '🔬',
-    specialty: 'Coherencia analítica y selección de variables',
-    weight: 0.35
-  },
-  {
-    name: 'Insighta',
-    emoji: '💡',
-    specialty: 'Originalidad y potencial de hallazgos',
+    name: 'Leopoldo Cerros',
+    emoji: '🎩',
+    specialty: 'rigor metodológico y validez de variables CEP',
     weight: 0.25
   },
   {
-    name: 'Narrativo',
-    emoji: '📝',
-    specialty: 'Impacto comunicacional y relevancia pública',
-    weight: 0.20
+    name: 'Carolina Tohó',
+    emoji: '🏛️',
+    specialty: 'utilidad política y accionabilidad',
+    weight: 0.25
+  },
+  {
+    name: 'Daniel Matabuena',
+    emoji: '📺',
+    specialty: 'claridad comunicacional y narrativa',
+    weight: 0.25
+  },
+  {
+    name: 'Profe Naim',
+    emoji: '📊',
+    specialty: 'visualización de datos y diseño gráfico',
+    weight: 0.25
   }
 ];
 
@@ -90,77 +91,97 @@ const buildJudgePrompt = (
   selectedVariables: string[]
 ): string => {
   const prompts: { [key: string]: string } = {
-    'Clara Datos': `
-Evalúa la CLARIDAD y FORMULACIÓN de esta propuesta:
+    'Leopoldo Cerros': `
+Evalúa el RIGOR METODOLÓGICO y VALIDEZ DE VARIABLES CEP:
+
+Eres Leopoldo Cerros, Director del Centro de Estudios Públicos (CEP). Eres riguroso, metodológico, y defensor de la ciencia de datos.
 
 ESCENARIO: ${scenario.text}
 
 PROPUESTA DE ANÁLISIS:
 "${proposal}"
 
-VARIABLES SELECCIONADAS: ${selectedVariables.join(', ') || 'ninguna'}
+VARIABLES MENCIONADAS: ${selectedVariables.join(', ') || 'ninguna mencionada'}
 
-Evalúa:
-- ¿La propuesta incluye una pregunta clara y específica?
-- ¿Es una pregunta respondible con datos de encuesta?
-- ¿Está bien delimitada (temporalidad, población, variables)?
-- ¿El lenguaje es claro y sin ambigüedades?
-- ¿Se describe cómo abordaría el análisis?
+Evalúa con ojo crítico:
+- ¿La propuesta menciona códigos específicos de variables CEP (ej: P47, P52)?
+- ¿Las variables mencionadas existen realmente en el CEP?
+- ¿Los años y encuestas mencionados son correctos?
+- ¿La estrategia de cruces es metodológicamente sólida?
+- ¿Hay rigor en la definición de variables dependientes/independientes?
+- ¿Se consideran sesgos de selección o confusores?
+
+PENALIZA severamente si no menciona códigos específicos de variables del CEP. PREMIA el uso correcto de nomenclatura técnica.
 `,
-    'Analytikos': `
-Evalúa la COHERENCIA ANALÍTICA y SELECCIÓN DE VARIABLES:
+    'Carolina Tohó': `
+Evalúa la UTILIDAD POLÍTICA y ACCIONABILIDAD:
+
+Eres Carolina Tohó, Ministra del Interior. Eres pragmática, orientada a decisiones concretas, y necesitas insights que informen políticas públicas.
 
 ESCENARIO: ${scenario.text}
 
 PROPUESTA DE ANÁLISIS:
 "${proposal}"
 
-VARIABLES SELECCIONADAS: ${selectedVariables.join(', ') || 'ninguna'}
+VARIABLES MENCIONADAS: ${selectedVariables.join(', ') || 'ninguna mencionada'}
 
-Evalúa:
-- ¿Las variables propuestas son coherentes con el escenario?
-- ¿La estrategia analítica es coherente con la pregunta planteada?
-- ¿Las variables elegidas son apropiadas para responder la pregunta?
-- ¿Se mencionan comparaciones, cruces o desagregaciones pertinentes?
-- ¿Falta alguna variable clave obvia?
+Evalúa desde la perspectiva de gobierno:
+- ¿El análisis propuesto informa decisiones de política pública?
+- ¿Los hallazgos potenciales son accionables (no solo descriptivos)?
+- ¿Se identifican segmentos poblacionales específicos para intervención?
+- ¿Permite priorizar recursos o focalizar programas?
+- ¿Anticipa impactos políticos de las decisiones?
+- ¿Responde a urgencias del escenario planteado?
+
+PREMIA propuestas que permitan diseñar intervenciones concretas. PENALIZA análisis puramente académicos sin aplicabilidad.
 `,
-    'Insighta': `
-Evalúa la ORIGINALIDAD y POTENCIAL DE HALLAZGOS:
+    'Daniel Matabuena': `
+Evalúa la CLARIDAD COMUNICACIONAL y NARRATIVA:
+
+Eres Daniel Matabuena, periodista de investigación. Eres directo, buscas el titular, valoras la claridad y el impacto público.
 
 ESCENARIO: ${scenario.text}
 
 PROPUESTA DE ANÁLISIS:
 "${proposal}"
 
-VARIABLES SELECCIONADAS: ${selectedVariables.join(', ') || 'ninguna'}
+VARIABLES MENCIONADAS: ${selectedVariables.join(', ') || 'ninguna mencionada'}
 
-Evalúa:
-- ¿La pregunta es interesante y no trivial?
-- ¿Podría generar insights novedosos o sorprendentes?
-- ¿Va más allá de descripciones simples?
-- ¿Explora relaciones o patrones no obvios?
-- ¿Tiene potencial para desafiar intuiciones o revelar tendencias ocultas?
+Evalúa como periodista:
+- ¿La propuesta tiene un "ángulo" claro (un titular potencial)?
+- ¿Es comprensible para audiencias no técnicas?
+- ¿Identifica contrastes o tensiones interesantes (ej: ricos vs pobres, antes vs después)?
+- ¿Cuenta una historia con datos?
+- ¿Podría generar un reportaje de impacto?
+- ¿Evita jerga innecesaria?
+
+PREMIA propuestas que generen titulares potentes. PENALIZA lenguaje técnico excesivo o falta de "gancho" narrativo.
 `,
-    'Narrativo': `
-Evalúa el IMPACTO COMUNICACIONAL y RELEVANCIA PÚBLICA:
+    'Profe Naim': `
+Evalúa la VISUALIZACIÓN DE DATOS y DISEÑO GRÁFICO:
+
+Eres el Profe Naim, experto en visualización de datos. Eres educador, obsesionado con gráficos claros, y enemigo de las tablas ilegibles.
 
 ESCENARIO: ${scenario.text}
 
 PROPUESTA DE ANÁLISIS:
 "${proposal}"
 
-VARIABLES SELECCIONADAS: ${selectedVariables.join(', ') || 'ninguna'}
+VARIABLES MENCIONADAS: ${selectedVariables.join(', ') || 'ninguna mencionada'}
 
-Evalúa:
-- ¿La propuesta es relevante para el debate público actual?
-- ¿Los hallazgos potenciales serían comunicables a audiencias no expertas?
-- ¿Abordan una necesidad real del tomador de decisiones del escenario?
-- ¿Los resultados podrían informar políticas concretas?
-- ¿La narrativa conecta datos con problemas reales?
+Evalúa la estrategia de visualización:
+- ¿La propuesta menciona un tipo de gráfico específico (barras, líneas, scatter, heatmap)?
+- ¿El tipo de gráfico es apropiado para el tipo de datos y pregunta?
+- ¿Se especifica qué va en cada eje?
+- ¿Se consideran comparaciones visuales efectivas?
+- ¿El diseño propuesto facilitaría la comprensión rápida?
+- ¿Se evitan gráficos de pie o 3D innecesarios?
+
+PREMIA propuestas que especifican visualizaciones concretas y apropiadas. PENALIZA falta de mención de gráficos o elecciones inapropiadas.
 `
   };
 
-  return prompts[judgeName] || prompts['Clara Datos'];
+  return prompts[judgeName] || prompts['Leopoldo Cerros'];
 };
 
 // Función para evaluar con OpenAI
