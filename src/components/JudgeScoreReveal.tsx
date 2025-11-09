@@ -12,8 +12,69 @@ export default function JudgeScoreReveal({ feedbacks, onComplete }: JudgeScoreRe
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showScore, setShowScore] = useState(false);
 
-  // Sonido usando Web Audio API
+  // Sonidos celebratorios (score > 8)
+  const playCelebrationSound = () => {
+    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+
+    // Secuencia ascendente de tonos
+    [600, 750, 900].forEach((freq, i) => {
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      oscillator.frequency.value = freq;
+      oscillator.type = 'sine';
+
+      const startTime = audioContext.currentTime + (i * 0.15);
+      gainNode.gain.setValueAtTime(0, startTime);
+      gainNode.gain.linearRampToValueAtTime(0.3, startTime + 0.05);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + 0.3);
+
+      oscillator.start(startTime);
+      oscillator.stop(startTime + 0.3);
+    });
+  };
+
+  // Sonidos de decepción (score < 4)
+  const playDisappointmentSound = () => {
+    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+
+    // Secuencia descendente de tonos graves
+    [400, 300, 200].forEach((freq, i) => {
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      oscillator.frequency.value = freq;
+      oscillator.type = 'sawtooth';
+
+      const startTime = audioContext.currentTime + (i * 0.2);
+      gainNode.gain.setValueAtTime(0, startTime);
+      gainNode.gain.linearRampToValueAtTime(0.2, startTime + 0.08);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + 0.4);
+
+      oscillator.start(startTime);
+      oscillator.stop(startTime + 0.4);
+    });
+  };
+
+  // Sonido normal para puntajes medios
   const playScoreSound = (score: number) => {
+    // Elegir sonido según puntaje
+    if (score > 8) {
+      playCelebrationSound();
+      return;
+    }
+    if (score < 4) {
+      playDisappointmentSound();
+      return;
+    }
+
+    // Sonido normal para puntajes medios
     const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
@@ -21,12 +82,10 @@ export default function JudgeScoreReveal({ feedbacks, onComplete }: JudgeScoreRe
     oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
 
-    // Frecuencia basada en el puntaje (más alto = más agudo)
     const frequency = 400 + (score * 50);
     oscillator.frequency.value = frequency;
     oscillator.type = 'sine';
 
-    // Envelope
     gainNode.gain.setValueAtTime(0, audioContext.currentTime);
     gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.1);
     gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
@@ -96,6 +155,31 @@ export default function JudgeScoreReveal({ feedbacks, onComplete }: JudgeScoreRe
     if (score >= 7) return 'from-blue-500 to-cyan-400';
     if (score >= 5) return 'from-yellow-500 to-orange-400';
     return 'from-red-500 to-pink-400';
+  };
+
+  // Mensajes dramáticos basados en puntaje
+  const getDramaticMessage = (score: number): string => {
+    if (score >= 9.5) return '¡OBRA MAESTRA!';
+    if (score >= 9) return '¡BRILLANTE!';
+    if (score >= 8.5) return '¡EXCELENTE!';
+    if (score >= 8) return '¡MUY BIEN!';
+    if (score >= 7) return 'Sólido';
+    if (score >= 6) return 'Bien';
+    if (score >= 5) return 'Puede mejorar';
+    if (score >= 4) return 'Necesitas repasar';
+    if (score >= 3) return 'Preocupante...';
+    if (score >= 2) return '¡Ay no!';
+    return '¡Estudia más!';
+  };
+
+  // Emoji según puntaje
+  const getDramaticEmoji = (score: number): string => {
+    if (score >= 9) return '🎉';
+    if (score >= 8) return '✨';
+    if (score >= 7) return '👍';
+    if (score >= 5) return '🤔';
+    if (score >= 4) return '😕';
+    return '😰';
   };
 
   return (
@@ -201,6 +285,18 @@ export default function JudgeScoreReveal({ feedbacks, onComplete }: JudgeScoreRe
                       className="text-7xl font-bold text-white drop-shadow-lg"
                     >
                       {currentFeedback.score.toFixed(1)}
+                    </motion.div>
+
+                    {/* Mensaje dramático */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.2, type: 'spring' }}
+                      className="mt-3 text-white font-bold text-2xl flex items-center justify-center gap-2"
+                    >
+                      <span>{getDramaticEmoji(currentFeedback.score)}</span>
+                      <span>{getDramaticMessage(currentFeedback.score)}</span>
+                      <span>{getDramaticEmoji(currentFeedback.score)}</span>
                     </motion.div>
                   </div>
 

@@ -25,6 +25,14 @@ interface Scenario {
   title: string;
   category: string;
   text: string;
+  respuesta_ideal?: {
+    pregunta_investigacion: string;
+    variables_esperadas: string[];
+    cruces_esperados: string[];
+    graficos_apropiados: string[];
+    insights_clave: string[];
+    errores_comunes_a_penalizar: string[];
+  };
 }
 
 // Jueces (copiados de src/data/judges.ts)
@@ -107,11 +115,18 @@ Evalúa con ojo crítico:
 - ¿La propuesta menciona códigos específicos de variables CEP (ej: P47, P52)?
 - ¿Las variables mencionadas existen realmente en el CEP?
 - ¿Los años y encuestas mencionados son correctos?
-- ¿La estrategia de cruces es metodológicamente sólida?
-- ¿Hay rigor en la definición de variables dependientes/independientes?
-- ¿Se consideran sesgos de selección o confusores?
+- ¿La estrategia de cruces y desagregaciones es metodológicamente sólida?
+- ¿Se proponen comparaciones descriptivas relevantes (ej: por NSE, edad, tiempo)?
 
-PENALIZA severamente si no menciona códigos específicos de variables del CEP. PREMIA el uso correcto de nomenclatura técnica.
+RECUERDA: Este es análisis DESCRIPTIVO de opinión pública, no causal. Evalúa la calidad de los cruces propuestos, no variables dependientes/independientes.
+
+${scenario.respuesta_ideal ? `RESPUESTA IDEAL DE REFERENCIA para feedback educativo:
+Variables sugeridas: ${scenario.respuesta_ideal.variables_esperadas.join(', ')}
+Cruces sugeridos: ${scenario.respuesta_ideal.cruces_esperados.join('; ')}
+
+IMPORTANTE: Los estudiantes pueden llegar a soluciones distintas igualmente valiosas. Usa esto solo para sugerencias constructivas.` : ''}
+
+PENALIZA severamente si no menciona códigos específicos de variables del CEP. PREMIA el uso correcto de nomenclatura técnica y cruces bien pensados.
 `,
     'Carolina Tohó': `
 Evalúa la UTILIDAD POLÍTICA y ACCIONABILIDAD:
@@ -132,6 +147,12 @@ Evalúa desde la perspectiva de gobierno:
 - ¿Permite priorizar recursos o focalizar programas?
 - ¿Anticipa impactos políticos de las decisiones?
 - ¿Responde a urgencias del escenario planteado?
+
+${scenario.respuesta_ideal ? `REFERENCIA para feedback:
+Variables clave: ${scenario.respuesta_ideal.variables_esperadas.join(', ')}
+Insights esperados: ${scenario.respuesta_ideal.insights_clave.join('; ')}
+
+Usa esto para sugerir enfoques de política pública que no hayan considerado.` : ''}
 
 PREMIA propuestas que permitan diseñar intervenciones concretas. PENALIZA análisis puramente académicos sin aplicabilidad.
 `,
@@ -155,6 +176,11 @@ Evalúa como periodista:
 - ¿Podría generar un reportaje de impacto?
 - ¿Evita jerga innecesaria?
 
+${scenario.respuesta_ideal ? `REFERENCIA para feedback:
+Insights narrativos clave: ${scenario.respuesta_ideal.insights_clave.join('; ')}
+
+Usa esto para sugerir contrastes o historias que no hayan visto.` : ''}
+
 PREMIA propuestas que generen titulares potentes. PENALIZA lenguaje técnico excesivo o falta de "gancho" narrativo.
 `,
     'Profe Naim': `
@@ -176,6 +202,11 @@ Evalúa la estrategia de visualización:
 - ¿Se consideran comparaciones visuales efectivas?
 - ¿El diseño propuesto facilitaría la comprensión rápida?
 - ¿Se evitan gráficos de pie o 3D innecesarios?
+
+${scenario.respuesta_ideal ? `REFERENCIA para feedback:
+Gráficos apropiados: ${scenario.respuesta_ideal.graficos_apropiados.join('; ')}
+
+Usa esto para sugerir alternativas de visualización (ej: "¿Pensaste en usar gráficos de líneas para mostrar cambios en el tiempo?").` : ''}
 
 PREMIA propuestas que especifican visualizaciones concretas y apropiadas. PENALIZA falta de mención de gráficos o elecciones inapropiadas.
 `
