@@ -7,7 +7,7 @@ export async function evaluateSubmission(
   scenario: Scenario,
   proposal: string,
   selectedVariables: string[],
-  onProgress?: (judgeIndex: number, judgeName: string) => void
+  _onProgress?: (judgeIndex: number, judgeName: string) => void
 ): Promise<{
   feedback: JudgeFeedback[];
   totalScore: number;
