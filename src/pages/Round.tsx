@@ -50,6 +50,13 @@ export default function Round() {
     }
   }, [game, currentRound, navigate]);
 
+  // Verificar si el juego fue finalizado (completed), redirigir al podio
+  useEffect(() => {
+    if (game && game.state === 'completed') {
+      navigate('/end');
+    }
+  }, [game, navigate]);
+
   // Calcular tiempo de finalización
   const endTime = round?.startTime
     ? round.startTime.toMillis() + (3 * 60 * 1000)
