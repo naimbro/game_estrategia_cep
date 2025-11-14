@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Trophy, ArrowRight, Loader } from 'lucide-react';
 import { useGame } from '../hooks/useGame';
 import { getLeaderboardForRound, advanceToNextRound } from '../lib/gameLogic';
 import LeaderboardComponent from '../components/LeaderboardComponent';
+import NoSubmissionNotification from '../components/NoSubmissionNotification';
 
 export default function Results() {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ export default function Results() {
   const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   const { game, loading } = useGame(gameCode);
+  const [showNoSubmissionNotification, setShowNoSubmissionNotification] = useState(false);
+  const [notificationShown, setNotificationShown] = useState(false);
 
   // Si el juego pasa a active nuevamente, navegar a la nueva ronda
   useEffect(() => {
@@ -30,6 +33,19 @@ export default function Results() {
       navigate('/end');
     }
   }, [game, navigate]);
+
+  // Verificar si el jugador no envió y mostrar notificación
+  useEffect(() => {
+    if (game && playerId && !notificationShown) {
+      const leaderboard = getLeaderboardForRound(game, currentRound);
+      const playerEntry = leaderboard.find(entry => entry.playerId === playerId);
+
+      if (playerEntry && playerEntry.didNotSubmit) {
+        setShowNoSubmissionNotification(true);
+        setNotificationShown(true);
+      }
+    }
+  }, [game, playerId, currentRound, notificationShown]);
 
   const handleAdvance = async () => {
     if (!gameCode || !isAdmin) return;
@@ -132,6 +148,12 @@ export default function Results() {
           </motion.div>
         )}
       </div>
+
+      {/* Notificación para jugadores que no enviaron */}
+      <NoSubmissionNotification
+        show={showNoSubmissionNotification}
+        onComplete={() => setShowNoSubmissionNotification(false)}
+      />
     </div>
   );
 }

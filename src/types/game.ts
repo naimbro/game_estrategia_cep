@@ -125,6 +125,7 @@ export interface LeaderboardEntry {
   totalScore: number;
   averageScore: number;
   rank: number;
+  didNotSubmit?: boolean;
 }
 
 // Estado de evaluación

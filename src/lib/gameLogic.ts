@@ -142,15 +142,33 @@ export async function processRound(gameCode: string, roundNumber: number): Promi
   if (!game) return;
 
   const round = game.rounds[roundNumber];
-  const results: { [key: string]: { totalScore: number; weightedScore: number; rank: number } } = {};
+  const results: { [key: string]: { totalScore: number; weightedScore: number; rank: number; didNotSubmit?: boolean } } = {};
 
-  // Calcular scores y ordenar
+  // Obtener todos los jugadores activos
+  const activePlayers = Object.values(game.players).filter(p => p.isActive);
+
+  // Calcular scores para jugadores que enviaron
   const scores = Object.entries(round.submissions).map(([playerId, submission]) => ({
     playerId,
     totalScore: submission.totalScore || 0,
-    weightedScore: submission.weightedScore || 0
+    weightedScore: submission.weightedScore || 0,
+    didNotSubmit: false
   }));
 
+  // Agregar jugadores que NO enviaron con puntaje de 1
+  activePlayers.forEach(player => {
+    const hasSubmission = round.submissions[player.uid];
+    if (!hasSubmission) {
+      scores.push({
+        playerId: player.uid,
+        totalScore: 1,
+        weightedScore: 1,
+        didNotSubmit: true
+      });
+    }
+  });
+
+  // Ordenar por puntaje
   scores.sort((a, b) => b.weightedScore - a.weightedScore);
 
   // Asignar ranks
@@ -158,7 +176,8 @@ export async function processRound(gameCode: string, roundNumber: number): Promi
     results[score.playerId] = {
       totalScore: score.totalScore,
       weightedScore: score.weightedScore,
-      rank: index + 1
+      rank: index + 1,
+      didNotSubmit: score.didNotSubmit
     };
   });
 
@@ -171,7 +190,7 @@ export async function processRound(gameCode: string, roundNumber: number): Promi
     updatedAt: Timestamp.now()
   };
 
-  // Actualizar scores de cada jugador
+  // Actualizar scores de cada jugador (incluyendo los que no enviaron)
   Object.entries(results).forEach(([playerId, result]) => {
     const currentTotal = game.players[playerId].totalScore;
     const newTotal = currentTotal + result.weightedScore;
@@ -217,7 +236,8 @@ export function getLeaderboardForRound(game: Game, roundNumber: number): Leaderb
       roundScore: result.weightedScore,
       totalScore: player.totalScore,
       averageScore: player.averageScore,
-      rank: result.rank
+      rank: result.rank,
+      didNotSubmit: result.didNotSubmit
     };
   });
 
