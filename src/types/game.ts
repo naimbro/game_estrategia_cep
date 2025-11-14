@@ -94,6 +94,7 @@ export interface GameRound {
       totalScore: number;
       weightedScore: number;
       rank: number;
+      didNotSubmit?: boolean;
     };
   };
 }

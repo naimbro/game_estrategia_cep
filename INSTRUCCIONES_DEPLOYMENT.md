@@ -1,96 +1,107 @@
 # 📋 Instrucciones de Deployment - Analista en Modo Crisis
 
-## ✅ Estado del Proyecto
+## 🔧 Configuración Previa al Deployment
 
-El proyecto está **100% implementado y listo para deployment**. El build se completó exitosamente sin errores.
-
-## 🔧 Pasos Previos al Deployment
-
-### 1. Configurar Firebase
-
-**IMPORTANTE**: Las credenciales actuales en `.env.local` son del proyecto `mgt300-risk-game`. Debes crear un nuevo proyecto Firebase específico para este juego.
-
-#### Pasos:
+### 1. Configurar Proyecto Firebase
 
 1. Ir a [Firebase Console](https://console.firebase.google.com)
-2. Crear nuevo proyecto llamado: **"analista-en-modo-crisis"**
+2. Crear nuevo proyecto: **"analista-en-modo-crisis"**
 3. Habilitar servicios:
-   - ✅ **Firestore Database** (modo test para empezar)
-   - ✅ **Authentication** → Habilitar "Inicio anónimo"
-4. Obtener credenciales:
-   - Click en el ícono de configuración (⚙️) → Configuración del proyecto
-   - En "Tus apps" → Seleccionar plataforma Web (<//>)
-   - Copiar las credenciales de Firebase Config
+   - ✅ **Firestore Database**
+   - ✅ **Authentication** → Habilitar "Google" y "Inicio anónimo"
+   - ✅ **Cloud Functions**
 
-#### Reglas de Firestore recomendadas:
+#### Reglas de Firestore
+
+En Firestore → Rules:
 
 ```javascript
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /games/{gameId} {
-      // Permitir lectura a usuarios autenticados
+    match /games/{gameCode} {
+      // Permitir lectura a todos los autenticados
       allow read: if request.auth != null;
 
-      // Permitir creación a usuarios autenticados
-      allow create: if request.auth != null;
+      // Permitir crear juego a usuarios autenticados
+      allow create: if request.auth != null
+                    && request.resource.data.hostId == request.auth.uid;
 
-      // Permitir actualización solo al dueño del juego
-      allow update: if request.auth != null &&
-                       request.auth.uid == resource.data.playerId;
+      // Permitir actualizar al host o jugadores activos
+      allow update: if request.auth != null
+                    && (resource.data.hostId == request.auth.uid
+                        || resource.data.players[request.auth.uid].isActive == true);
+
+      // Permitir eliminar solo al host
+      allow delete: if request.auth != null
+                    && resource.data.hostId == request.auth.uid;
     }
   }
 }
 ```
 
-### 2. Actualizar `.env.local`
+#### Dominios Autorizados
 
-Reemplazar las credenciales actuales con las del nuevo proyecto:
+En Authentication → Settings → Authorized domains:
+- Agregar: `tu-usuario.github.io`
+- `localhost` ya está por defecto
+
+### 2. Configurar Variables de Entorno Local
+
+**Frontend: `.env.local`**
 
 ```env
-VITE_FIREBASE_API_KEY=TU_API_KEY_NUEVA
+VITE_FIREBASE_API_KEY=AIzaSy...
 VITE_FIREBASE_AUTH_DOMAIN=analista-en-modo-crisis.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=analista-en-modo-crisis
 VITE_FIREBASE_STORAGE_BUCKET=analista-en-modo-crisis.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=TU_SENDER_ID
-VITE_FIREBASE_APP_ID=TU_APP_ID
-VITE_OPENAI_KEY=sk-... (tu clave actual está OK, pero verifica que esté activa)
+VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+VITE_FIREBASE_APP_ID=1:123456789:web:abcdef
 ```
 
-### 3. Verificar Clave OpenAI
+⚠️ Asegúrate de que `.env.local` esté en `.gitignore`
 
-**Verificar tu clave de OpenAI en `.env.local`:**
-1. Que esté activa en [OpenAI Platform](https://platform.openai.com/api-keys)
-2. Que tenga créditos disponibles
-3. Que tenga permisos para GPT-4o-mini
+**Cloud Functions: `functions/.env`**
 
-**Costo estimado:**
-- ~$0.02 por partida completa (10 rondas × 4 jueces)
-- Usar para testing: limitar a 2-3 partidas primero
+```env
+OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxx
+```
+
+⚠️ Asegúrate de que `functions/.env` esté en `.gitignore`
+
+### 3. Desplegar Cloud Functions a Firebase
+
+**IMPORTANTE**: Las Cloud Functions manejan la integración con OpenAI de forma segura. La API key **NUNCA** va al frontend.
+
+```bash
+# 1. Configurar API key de OpenAI en Firebase (producción)
+firebase functions:config:set openai.key="sk-proj-xxxxxxxxxxxxx"
+
+# 2. Verificar configuración
+firebase functions:config:get
+
+# 3. Compilar y desplegar
+cd functions
+npm run build
+cd ..
+firebase deploy --only functions
+```
+
+Verificar deployment:
+- Firebase Console → Functions
+- Debe aparecer: `evaluateSubmission` (us-central1)
+
+**Costo estimado OpenAI:**
+- ~$0.02 por partida completa (8 escenarios × 4 jueces)
+- Monitorear en [OpenAI Platform](https://platform.openai.com/usage)
 
 ## 🚀 Deployment a GitHub Pages
 
 ### Paso 1: Crear Repositorio GitHub
 
 ```bash
-# Inicializar git (si no está inicializado)
-git init
-
-# Agregar archivos
-git add .
-
-# Commit inicial
-git commit -m "feat: implementación completa de Analista en Modo Crisis
-
-- 10 escenarios narrativos de política pública
-- 4 jueces IA con GPT-4o-mini
-- 100+ variables del CEP
-- Sistema de evaluación y feedback
-- Leaderboard global
-- UI con Tailwind y Framer Motion"
-
 # Conectar con repo remoto
-git remote add origin https://github.com/naimbro/game_estrategia_cep.git
+git remote add origin https://github.com/tu-usuario/game_estrategia_cep.git
 
 # Push
 git push -u origin main
@@ -102,27 +113,29 @@ git push -u origin main
 2. En el menú lateral: **Pages**
 3. En "Build and deployment":
    - Source: **GitHub Actions**
-4. El workflow `.github/workflows/deploy.yml` ya está configurado
 
-### Paso 3: Agregar Secrets
+El workflow `.github/workflows/deploy.yml` ya está configurado.
+
+### Paso 3: Agregar GitHub Secrets
 
 En **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
 
-Agregar los siguientes secrets (USAR LAS CREDENCIALES DEL NUEVO PROYECTO FIREBASE):
+Agregar los siguientes secrets con las credenciales de tu proyecto Firebase:
 
 ```
-VITE_FIREBASE_API_KEY=...
-VITE_FIREBASE_AUTH_DOMAIN=...
-VITE_FIREBASE_PROJECT_ID=...
-VITE_FIREBASE_STORAGE_BUCKET=...
-VITE_FIREBASE_MESSAGING_SENDER_ID=...
-VITE_FIREBASE_APP_ID=...
-VITE_OPENAI_KEY=...
+VITE_FIREBASE_API_KEY
+VITE_FIREBASE_AUTH_DOMAIN
+VITE_FIREBASE_PROJECT_ID
+VITE_FIREBASE_STORAGE_BUCKET
+VITE_FIREBASE_MESSAGING_SENDER_ID
+VITE_FIREBASE_APP_ID
 ```
+
+⚠️ **NO agregar** `VITE_OPENAI_KEY` ni `OPENAI_API_KEY` - la API key debe estar solo en Cloud Functions por seguridad.
 
 ### Paso 4: Trigger Deploy
 
-El workflow se ejecutará automáticamente en cada push a `main`.
+El workflow se ejecuta automáticamente en cada push a `main`.
 
 Para forzar un deploy manual:
 - Ir a **Actions** → **Deploy to GitHub Pages** → **Run workflow**
@@ -130,99 +143,100 @@ Para forzar un deploy manual:
 ### Paso 5: Verificar Deployment
 
 Después de ~2-3 minutos:
-- URL: `https://naimbro.github.io/game_estrategia_cep/`
+- URL: `https://tu-usuario.github.io/game_estrategia_cep/`
 - Verificar que cargue correctamente
-- Probar flow completo: Home → Login → Round 1 → Submit → Ver feedback
+- Probar crear juego como admin y unirse como jugador
 
-## 🧪 Testing Local
+## 🧪 Testing del Flujo Completo
 
-Antes de deployment, probar localmente:
-
-```bash
-# Ejecutar en modo desarrollo
-npm run dev
-
-# Abrir en navegador: http://localhost:5173
-```
-
-**Flow de testing:**
-1. ✅ Home carga correctamente
-2. ✅ Login → ingresar nombre → crea partida en Firestore
-3. ✅ Round 1 → ver escenario y explorador de variables
-4. ✅ Escribir pregunta y estrategia
-5. ✅ Enviar → ver evaluación de jueces IA (esto usa OpenAI)
-6. ✅ Ver feedback overlay con puntajes
-7. ✅ Continuar a Round 2
-8. ✅ Al completar 10 rondas → ver página End
-9. ✅ Ver Leaderboard
+1. ✅ **Home** → Login con Google o anónimo
+2. ✅ **Crear juego** → Se genera código de 6 caracteres
+3. ✅ **Lobby** → Otros jugadores pueden unirse con el código
+4. ✅ **Round 1-8** → Ver escenario, explorar variables CEP, enviar propuesta
+5. ✅ **Evaluación IA** → Los 4 jueces evalúan con OpenAI (gpt-4o-mini)
+6. ✅ **Feedback** → Ver puntajes con animación y sonidos
+7. ✅ **Results** → Ver tabla de posiciones de la ronda
+8. ✅ **End** → Podio final con ganador
 
 ## 📊 Monitoreo Post-Deployment
 
 ### Firebase Console
 
 Monitorear:
-- **Firestore**: Ver games creados
-- **Authentication**: Ver usuarios anónimos
-- **Usage**: Verificar reads/writes
+- **Firestore** → Database → games: Ver partidas creadas
+- **Authentication** → Users: Ver jugadores
+- **Functions** → Dashboard: Ver invocaciones y errores
+- **Usage**: Verificar no exceder cuota gratuita
 
-### Costos OpenAI
+### OpenAI Platform
 
 Monitorear en [OpenAI Usage](https://platform.openai.com/usage):
 - Tokens usados por día
 - Costo acumulado
-- Alertas si excede presupuesto
+- Configurar alertas de presupuesto
 
 ## 🐛 Troubleshooting
 
 ### Error: "Firebase config undefined"
-- Verificar que los secrets estén configurados en GitHub
-- Verificar nombres exactos de variables (VITE_ prefix)
+- Verificar que los secrets estén en GitHub Actions
+- Verificar nombres exactos (prefijo `VITE_`)
+- Revisar logs en Actions
+
+### Error: "Error al evaluar con Cloud Function"
+- Verificar que Cloud Functions estén desplegadas
+- Verificar API key de OpenAI: `firebase functions:config:get`
+- Revisar logs en Firebase Console → Functions → Logs
 
 ### Error: "OpenAI rate limit"
-- Reducir concurrencia (evaluación secuencial ya implementada)
-- Verificar créditos disponibles
-- Agregar retry logic si es necesario
+- Verificar créditos en OpenAI Platform
+- Reducir frecuencia de testing
+- La evaluación ya es secuencial (no paralela)
 
 ### Error: "Firestore permission denied"
 - Verificar reglas de Firestore
 - Verificar que Authentication esté habilitado
+- Verificar que usuario esté autenticado
 
-### Build warning: "Chunks larger than 500kB"
-- Es normal para esta app (React + Firebase + Framer Motion)
-- Opcional: implementar code splitting en futuras versiones
+### Build error: TypeScript compilation
+- Ejecutar `npm run build` localmente
+- Revisar errores de tipos
+- Verificar todas las dependencias: `npm install`
 
 ## ✨ Features Implementadas
 
-- ✅ Sistema completo de 10 rondas
-- ✅ 4 jueces IA con prompts especializados
-- ✅ 100+ variables CEP con explorador searchable
-- ✅ Timer con auto-submit
-- ✅ Feedback overlay animado
-- ✅ Leaderboard global
-- ✅ Página de resultados final
+- ✅ Sistema multiplayer con códigos de sala
+- ✅ 8 escenarios de política pública chilena
+- ✅ 4 jueces IA especializados (Leopoldo Cerros, Carolina Tohó, Daniel Matabuena, Profe Naim)
+- ✅ 100+ variables del CEP con explorador searchable
+- ✅ Evaluación con OpenAI (gpt-4o-mini)
+- ✅ Feedback con efectos de sonido y mensajes dramáticos
+- ✅ Respuestas ideales por escenario para feedback educativo
+- ✅ Timer con pausa (control del profesor)
+- ✅ Podio final con ganador
 - ✅ Responsive design (mobile-first)
 - ✅ Animaciones con Framer Motion
-- ✅ Persistencia en Firestore
-- ✅ Auth anónima de Firebase
+- ✅ Sincronización en tiempo real (Firestore)
+- ✅ Auth con Google y anónima
 
-## 📈 Próximas Mejoras (Opcionales)
+## 📈 Costos Estimados
 
-1. **Code splitting** para reducir bundle size
-2. **Caché de variables** para mejorar performance
-3. **Modo offline** con service workers
-4. **Análisis de respuestas** con visualizaciones
-5. **Comparación con otros jugadores**
-6. **Sistema de logros y badges**
-7. **Exportar resultados a PDF**
+**Firebase (Spark Plan - Gratis):**
+- Firestore: 1GB storage, 50k reads/day
+- Cloud Functions: 2M invocaciones/mes
+- Authentication: 10k MAU (monthly active users)
 
-## 📞 Soporte
+**OpenAI:**
+- gpt-4o-mini: ~$0.15 por 1M tokens
+- Costo por partida completa: ~$0.02
+- 100 partidas/mes: ~$2.00
 
-Para issues o preguntas:
-- GitHub Issues: `https://github.com/naimbro/game_estrategia_cep/issues`
-- Email: [tu email]
+## 📚 Documentación Adicional
+
+Para configuración detallada de Firebase en futuros proyectos, consultar:
+- `FIREBASE_SETUP_GUIDE.md` - Guía completa de integración Firebase + OpenAI
 
 ---
 
 **¡El proyecto está listo para producción! 🚀**
 
-Última actualización: $(date)
+Última actualización: 2025-01-09
