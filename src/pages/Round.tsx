@@ -59,15 +59,15 @@ export default function Round() {
 
   // Calcular tiempo de finalización
   const endTime = round?.startTime
-    ? round.startTime.toMillis() + (3 * 60 * 1000)
-    : Date.now() + (3 * 60 * 1000);
+    ? round.startTime.toMillis() + (5 * 60 * 1000)
+    : Date.now() + (5 * 60 * 1000);
 
-  // Manejar expiración del tiempo (AUTO-PROCESS si es admin)
+  // Manejar expiración del tiempo (Ya NO auto-procesa, solo notifica)
   const handleTimeExpire = useCallback(async () => {
-    if (isAdmin && game && gameCode && !processing) {
-      await handleProcessRound();
-    }
-  }, [isAdmin, game, gameCode, processing]);
+    // Ya no se auto-procesa al expirar el timer principal
+    // Se deja 2 minutos de buffer para que terminen las evaluaciones en progreso
+    console.log('Timer principal expirado. Iniciando periodo de gracia de 2 minutos...');
+  }, []);
 
   // Agregar variable
   const handleVariableSelect = (variableCode: string) => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Users, Copy, Check, Play, Loader } from 'lucide-react';
+import { Users, Copy, Check, Play, Loader, X } from 'lucide-react';
 import { useGame } from '../hooks/useGame';
 import { startRound } from '../lib/gameLogic';
 
@@ -62,6 +62,24 @@ export default function WaitingRoom() {
       console.error('Error al iniciar juego:', err);
       alert('Error al iniciar el juego');
       setStarting(false);
+    }
+  };
+
+  const handleRemovePlayer = async (playerUid: string, playerName: string) => {
+    if (!gameCode || !isAdmin) return;
+    if (!confirm(`¿Remover a ${playerName} del juego?`)) return;
+
+    try {
+      const { doc, updateDoc } = await import('firebase/firestore');
+      const { db } = await import('../lib/firebase');
+
+      await updateDoc(doc(db, 'games', gameCode), {
+        [`players.${playerUid}.isActive`]: false,
+        updatedAt: new Date()
+      });
+    } catch (err) {
+      console.error('Error al remover jugador:', err);
+      alert('Error al remover jugador');
     }
   };
 
@@ -185,6 +203,17 @@ export default function WaitingRoom() {
                       )}
                     </div>
                   </div>
+
+                  {/* Botón remover (solo admin puede remover a estudiantes) */}
+                  {isAdmin && !player.isAdmin && player.isActive && (
+                    <button
+                      onClick={() => handleRemovePlayer(player.uid, player.name)}
+                      className="p-2 hover:bg-red-600/20 rounded-lg transition-colors group"
+                      title={`Remover a ${player.name}`}
+                    >
+                      <X className="w-5 h-5 text-gray-400 group-hover:text-red-400" />
+                    </button>
+                  )}
                 </div>
               </motion.div>
             ))}
