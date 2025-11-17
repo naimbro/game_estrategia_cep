@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
-import { Search, X, Plus, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { Search, X, Plus, HelpCircle, ChevronDown, ChevronUp, Info } from 'lucide-react';
 import cepVariables from '../data/variables.json';
+import variablesMetadata from '../data/variables_metadata.json';
 
 interface VariableExplorerProps {
   selectedVariables: string[];
@@ -18,15 +19,23 @@ export default function VariableExplorer({
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [showHelp, setShowHelp] = useState(false);
+  const [expandedVariable, setExpandedVariable] = useState<string | null>(null);
+  const [showAllTags, setShowAllTags] = useState(false);
 
-  // Obtener todas las tags únicas
+  // Obtener todas las tags únicas con contador
   const allTags = useMemo(() => {
-    const tags = new Set<string>();
+    const tagCounts = new Map<string, number>();
     Object.values(cepVariables).forEach(variable => {
-      variable.tags.forEach(tag => tags.add(tag));
+      variable.tags.forEach(tag => {
+        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+      });
     });
-    return Array.from(tags).sort();
+    return Array.from(tagCounts.entries())
+      .sort((a, b) => b[1] - a[1]) // Ordenar por frecuencia descendente
+      .map(([tag, count]) => ({ tag, count }));
   }, []);
+
+  const totalVariables = Object.keys(cepVariables).length;
 
   // Filtrar variables
   const filteredVariables = useMemo(() => {
@@ -38,7 +47,7 @@ export default function VariableExplorer({
         data.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
 
       // Filtro por tag seleccionado
-      const matchesTag = selectedTag === null || data.tags.includes(selectedTag);
+      const matchesTag = !selectedTag || data.tags.includes(selectedTag);
 
       return matchesSearch && matchesTag;
     });
@@ -47,9 +56,14 @@ export default function VariableExplorer({
   return (
     <div className={`dramatic-card p-4 ${className}`}>
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-lg font-bold text-purple-300">
-          Explorador de Variables CEP
-        </h3>
+        <div>
+          <h3 className="text-lg font-bold text-purple-300">
+            Explorador de Variables CEP
+          </h3>
+          <p className="text-xs text-gray-400 mt-0.5">
+            {totalVariables} variables disponibles
+          </p>
+        </div>
         <button
           onClick={() => setShowHelp(!showHelp)}
           className="flex items-center gap-1 text-sm text-purple-300 hover:text-purple-200 transition-colors"
@@ -113,30 +127,46 @@ export default function VariableExplorer({
       </div>
 
       {/* Filtros por tags */}
-      <div className="flex flex-wrap gap-2 mb-3">
-        <button
-          onClick={() => setSelectedTag(null)}
-          className={`px-3 py-1 rounded-full text-sm transition-all ${
-            selectedTag === null
-              ? 'bg-purple-600 text-white'
-              : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
-          }`}
-        >
-          Todas
-        </button>
-        {allTags.slice(0, 8).map(tag => (
+      <div className="mb-3">
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-xs text-gray-400">
+            Filtrar por tema ({allTags.length} temas):
+          </p>
+          {allTags.length > 8 && (
+            <button
+              onClick={() => setShowAllTags(!showAllTags)}
+              className="text-xs text-purple-300 hover:text-purple-200 transition-colors"
+            >
+              {showAllTags ? 'Ver menos' : `Ver todos (${allTags.length})`}
+            </button>
+          )}
+        </div>
+        <div className="flex flex-wrap gap-2">
           <button
-            key={tag}
-            onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
+            onClick={() => setSelectedTag(null)}
             className={`px-3 py-1 rounded-full text-sm transition-all ${
-              selectedTag === tag
+              !selectedTag
                 ? 'bg-purple-600 text-white'
                 : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
             }`}
           >
-            {tag}
+            Todas ({totalVariables})
           </button>
-        ))}
+          {(showAllTags ? allTags : allTags.slice(0, 8)).map(({ tag, count }) => (
+            <button
+              key={tag}
+              onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
+              className={`px-3 py-1 rounded-full text-sm transition-all flex items-center gap-1 ${
+                selectedTag === tag
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
+              }`}
+            >
+              {tag}
+              <span className="text-xs opacity-70">({count})</span>
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Variables seleccionadas */}
@@ -176,6 +206,8 @@ export default function VariableExplorer({
         ) : (
           filteredVariables.slice(0, 20).map(([code, data]) => {
             const isSelected = selectedVariables.includes(code);
+            const isExpanded = expandedVariable === code;
+            const metadata = (variablesMetadata as any)[code];
 
             return (
               <div
@@ -188,9 +220,20 @@ export default function VariableExplorer({
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-sm text-purple-200">
-                      {data.name}
-                    </h4>
+                    <div className="flex items-start gap-2">
+                      <h4 className="font-semibold text-sm text-purple-200 flex-1">
+                        {data.name}
+                      </h4>
+                      {metadata && (
+                        <button
+                          onClick={() => setExpandedVariable(isExpanded ? null : code)}
+                          className="text-purple-300 hover:text-purple-200 transition-colors shrink-0"
+                          title={isExpanded ? "Ocultar detalles" : "Ver detalles"}
+                        >
+                          <Info className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
                     <p className="text-xs text-gray-400 mt-1">
                       Código: {code} | Años: {data.years[0]}-{data.years[1]}
                     </p>
@@ -204,6 +247,51 @@ export default function VariableExplorer({
                         </span>
                       ))}
                     </div>
+
+                    {/* Panel expandible con detalles */}
+                    {isExpanded && metadata && (
+                      <div className="mt-3 p-2 bg-slate-900/50 rounded border border-purple-500/20">
+                        <div className="space-y-2">
+                          <div>
+                            <p className="text-xs font-semibold text-purple-300 mb-1">Pregunta:</p>
+                            <p className="text-xs text-gray-300 italic">"{metadata.pregunta}"</p>
+                          </div>
+                          <div>
+                            <p className="text-xs font-semibold text-purple-300 mb-1">
+                              Tipo: <span className="text-gray-300 font-normal">{metadata.tipo}</span>
+                            </p>
+                          </div>
+                          {metadata.opciones && (
+                            <div>
+                              <p className="text-xs font-semibold text-purple-300 mb-1">
+                                Opciones de respuesta:
+                              </p>
+                              <ul className="text-xs text-gray-300 space-y-0.5 ml-3">
+                                {metadata.opciones.map((opcion: string, idx: number) => (
+                                  <li key={idx} className="list-disc">
+                                    {opcion}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {metadata.etiquetas && (
+                            <div>
+                              <p className="text-xs font-semibold text-purple-300 mb-1">
+                                Etiquetas de respuesta:
+                              </p>
+                              <div className="text-xs text-gray-300 space-y-0.5">
+                                {Object.entries(metadata.etiquetas).map(([key, value]) => (
+                                  <div key={key}>
+                                    <span className="text-purple-400">{key}:</span> {value as string}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                   <button
                     onClick={() =>
