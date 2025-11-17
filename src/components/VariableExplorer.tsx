@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Search, X, Plus } from 'lucide-react';
+import { Search, X, Plus, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import cepVariables from '../data/variables.json';
 
 interface VariableExplorerProps {
@@ -17,6 +17,7 @@ export default function VariableExplorer({
 }: VariableExplorerProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [showHelp, setShowHelp] = useState(false);
 
   // Obtener todas las tags únicas
   const allTags = useMemo(() => {
@@ -45,9 +46,59 @@ export default function VariableExplorer({
 
   return (
     <div className={`dramatic-card p-4 ${className}`}>
-      <h3 className="text-lg font-bold mb-3 text-purple-300">
-        Explorador de Variables CEP
-      </h3>
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-lg font-bold text-purple-300">
+          Explorador de Variables CEP
+        </h3>
+        <button
+          onClick={() => setShowHelp(!showHelp)}
+          className="flex items-center gap-1 text-sm text-purple-300 hover:text-purple-200 transition-colors"
+          title={showHelp ? "Ocultar ayuda" : "¿Cómo usar el explorador?"}
+        >
+          <HelpCircle className="w-4 h-4" />
+          {showHelp ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+        </button>
+      </div>
+
+      {/* Sección de ayuda colapsable */}
+      {showHelp && (
+        <div className="mb-4 p-3 bg-slate-800/50 rounded-lg border border-purple-500/30">
+          <h4 className="text-sm font-semibold text-purple-300 mb-2">
+            📚 Cómo usar el Explorador de Variables
+          </h4>
+          <div className="space-y-2 text-xs text-gray-300">
+            <div className="flex gap-2">
+              <span className="text-purple-400 font-bold">1.</span>
+              <div>
+                <strong className="text-purple-300">Buscar variables:</strong> Usa la barra de búsqueda para encontrar variables por nombre, código o tema (ej: "pensiones", "P82", "seguridad").
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-purple-400 font-bold">2.</span>
+              <div>
+                <strong className="text-purple-300">Filtrar por tema:</strong> Haz clic en las etiquetas de temas (política, economía, etc.) para filtrar variables relacionadas. Haz clic de nuevo para quitar el filtro.
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-purple-400 font-bold">3.</span>
+              <div>
+                <strong className="text-purple-300">Seleccionar variables:</strong> Haz clic en el botón <Plus className="w-3 h-3 inline" /> para agregar una variable a tu análisis. Las variables seleccionadas aparecerán arriba en píldoras moradas.
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-purple-400 font-bold">4.</span>
+              <div>
+                <strong className="text-purple-300">Remover variables:</strong> Haz clic en la <X className="w-3 h-3 inline" /> en las píldoras moradas o en el botón rojo de la lista para quitar variables seleccionadas.
+              </div>
+            </div>
+            <div className="mt-2 p-2 bg-purple-900/20 rounded border border-purple-500/20">
+              <p className="text-purple-200">
+                💡 <strong>Tip:</strong> Necesitas seleccionar variables relevantes para tu propuesta de análisis. Los jueces IA evaluarán si tus variables son apropiadas para responder la pregunta del escenario.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Búsqueda */}
       <div className="relative mb-3">

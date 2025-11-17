@@ -1,0 +1,325 @@
+{
+  "p1_satisfaccion_general": {
+    "code": "P1",
+    "name": "Satisfacción general con la vida",
+    "pregunta": "En general, considerando todos los aspectos de su vida, ¿cuán satisfecho o insatisfecho se encuentra usted actualmente?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy insatisfecho",
+      "Insatisfecho",
+      "Ni bien ni mal",
+      "Satisfecho",
+      "Muy satisfecho",
+      "No sabe",
+      "No contesta"
+    ]
+  },
+  "p10_aprobacion_gobierno": {
+    "code": "P10",
+    "name": "Aprobación de la gestión presidencial",
+    "pregunta": "¿Usted aprueba o desaprueba la forma como el Presidente Eduardo Frei Ruiz-Tagle está conduciendo su gobierno?",
+    "tipo": "categórica",
+    "opciones": [
+      "Aprueba",
+      "Desaprueba",
+      "No aprueba ni desaprueba",
+      "No sabe",
+      "No contesta"
+    ]
+  },
+  "p15_confianza_instituciones": {
+    "code": "P15",
+    "name": "Confianza en instituciones",
+    "pregunta": "¿Cuánta confianza tiene usted en las siguientes instituciones?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Mucha",
+      "Algo",
+      "Poca",
+      "Ninguna",
+      "No sabe",
+      "No contesta"
+    ]
+  },
+  "p16_percepcion_corrupcion": {
+    "code": "P16",
+    "name": "Percepción de corrupción",
+    "pregunta": "¿Diría usted que en Chile hay mucha, algo, poca o ninguna corrupción en el gobierno?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Mucha",
+      "Algo",
+      "Poca",
+      "Ninguna",
+      "No sabe",
+      "No contesta"
+    ]
+  },
+  "p20_problemas_principales_pais": {
+    "code": "P20",
+    "name": "Principales problemas del país",
+    "pregunta": "¿Cuál cree usted que es el principal problema que tiene hoy el país?",
+    "tipo": "categórica",
+    "opciones": [
+      "Respuesta abierta codificada",
+      "No sabe",
+      "No contesta"
+    ]
+  },
+  "p47_confianza_carabineros": {
+    "code": "P47",
+    "name": "Confianza en Carabineros",
+    "pregunta": "¿Cuánta confianza tiene Ud. en Carabineros de Chile?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Mucha",
+      "Bastante",
+      "Poca",
+      "Ninguna",
+      "NS/NR"
+    ]
+  },
+  "p48_confianza_congreso": {
+    "code": "P48",
+    "name": "Confianza en el Congreso Nacional",
+    "pregunta": "¿Cuánta confianza tiene Ud. en el Congreso Nacional?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Mucha",
+      "Bastante",
+      "Poca",
+      "Ninguna",
+      "NS/NR"
+    ]
+  },
+  "p50_percepcion_seguridad": {
+    "code": "P50",
+    "name": "Percepción de seguridad en el barrio",
+    "pregunta": "Pensando en su barrio, ¿se siente Ud. seguro o inseguro al caminar solo de noche por donde vive?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy inseguro",
+      "Algo inseguro",
+      "Algo seguro",
+      "Muy seguro",
+      "NS/NR"
+    ]
+  },
+  "p60_sistema_salud": {
+    "code": "P60",
+    "name": "Sistema de salud utilizado",
+    "pregunta": "¿Cuál es el sistema de salud al que usted está afiliado?",
+    "tipo": "categórica",
+    "opciones": [
+      "FONASA",
+      "ISAPRE",
+      "Otro",
+      "Ninguno",
+      "NS/NR"
+    ]
+  },
+  "p70_economia_personal": {
+    "code": "P70",
+    "name": "Situación económica del hogar",
+    "pregunta": "¿Cómo calificaría Ud. la situación económica actual de su hogar?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy mala",
+      "Mala",
+      "Regular",
+      "Buena",
+      "Muy buena",
+      "NS/NR"
+    ]
+  },
+  "p80_desigualdad_ingresos": {
+    "code": "P80",
+    "name": "Percepción de desigualdad de ingresos",
+    "pregunta": "¿Cree Ud. que las diferencias de ingresos en Chile son demasiado grandes, razonables o demasiado pequeñas?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Demasiado grandes",
+      "Razonables",
+      "Demasiado pequeñas",
+      "NS/NR"
+    ]
+  },
+  "p82_sistema_pensiones_satisfaccion": {
+    "code": "P82",
+    "name": "Satisfacción con el sistema de pensiones (AFP)",
+    "pregunta": "En general, ¿qué tan satisfecho está Ud. con el sistema de pensiones en Chile (AFP)?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy insatisfecho",
+      "Insatisfecho",
+      "Satisfecho",
+      "Muy satisfecho",
+      "NS/NR"
+    ]
+  },
+  "p85_educacion_gratuidad_calidad": {
+    "code": "P85",
+    "name": "Opinión sobre gratuidad y calidad en educación",
+    "pregunta": "¿Está Ud. de acuerdo o en desacuerdo con que la educación universitaria en Chile debiera ser gratuita para todos?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy en desacuerdo",
+      "En desacuerdo",
+      "De acuerdo",
+      "Muy de acuerdo",
+      "NS/NR"
+    ]
+  },
+  "p90_medioambiente_preocupacion": {
+    "code": "P90",
+    "name": "Preocupación por el medio ambiente",
+    "pregunta": "¿Qué tan preocupado está Ud. por el cuidado del medio ambiente en Chile?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Nada",
+      "Poco",
+      "Algo",
+      "Muy",
+      "NS/NR"
+    ]
+  },
+  "p93_inmigracion_opinion_general": {
+    "code": "P93",
+    "name": "Opinión sobre inmigración",
+    "pregunta": "¿Cree Ud. que la inmigración en Chile ha sido más bien positiva o negativa para el país?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy negativa",
+      "Negativa",
+      "Positiva",
+      "Muy positiva",
+      "NS/NR"
+    ]
+  },
+  "p97_violencia_genero_percepcion": {
+    "code": "P97",
+    "name": "Percepción sobre la violencia de género",
+    "pregunta": "¿Diría Ud. que la violencia contra las mujeres es un problema muy grave, grave, poco grave o nada grave en Chile?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Nada grave",
+      "Poco grave",
+      "Grave",
+      "Muy grave",
+      "NS/NR"
+    ]
+  },
+  "p99_derechos_lgbtq_apoyo": {
+    "code": "P99",
+    "name": "Apoyo a los derechos de las personas LGBTQ+",
+    "pregunta": "¿Está Ud. de acuerdo o en desacuerdo con que las parejas del mismo sexo puedan casarse legalmente en Chile?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy en desacuerdo",
+      "En desacuerdo",
+      "De acuerdo",
+      "Muy de acuerdo",
+      "NS/NR"
+    ]
+  },
+  "p85_covid19_preocupacion": {
+    "code": "P85",
+    "name": "Preocupación por el COVID-19",
+    "pregunta": "¿Cuán preocupado está usted por contagiarse de coronavirus (COVID-19)?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy preocupado",
+      "Algo preocupado",
+      "Poco preocupado",
+      "Nada preocupado",
+      "NS/NR"
+    ]
+  },
+  "p86_confianza_manejo_covid": {
+    "code": "P86",
+    "name": "Confianza en el manejo del COVID-19 por el gobierno",
+    "pregunta": "¿Qué tan bien cree usted que el gobierno ha manejado la pandemia del coronavirus (COVID-19)?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy mal",
+      "Mal",
+      "Bien",
+      "Muy bien",
+      "NS/NR"
+    ]
+  },
+  "p90_apoyo_proceso_constituyente": {
+    "code": "P90",
+    "name": "Apoyo al proceso constituyente",
+    "pregunta": "¿Usted aprueba o rechaza la nueva propuesta de Constitución elaborada por la Convención Constitucional?",
+    "tipo": "categórica",
+    "opciones": [
+      "Aprueba",
+      "Rechaza",
+      "NS/NR"
+    ]
+  },
+  "p91_expectativas_constitucion": {
+    "code": "P91",
+    "name": "Expectativas frente a nueva Constitución",
+    "pregunta": "¿Cree usted que una nueva Constitución mejorará, empeorará o no cambiará la situación del país?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Mejorará",
+      "Empeorará",
+      "No cambiará",
+      "NS/NR"
+    ]
+  },
+  "p92_salud_mental": {
+    "code": "P92",
+    "name": "Estado de salud mental y emocional",
+    "pregunta": "Durante las últimas dos semanas, ¿con qué frecuencia ha sentido tristeza o desesperanza?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Nunca",
+      "Algunos días",
+      "Más de la mitad de los días",
+      "Casi todos los días",
+      "NS/NR"
+    ]
+  },
+  "p93_inflacion_preocupacion": {
+    "code": "P93",
+    "name": "Preocupación por la inflación y costo de vida",
+    "pregunta": "¿Cuánto le preocupa a usted el alza del costo de la vida o la inflación?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Mucho",
+      "Algo",
+      "Poco",
+      "Nada",
+      "NS/NR"
+    ]
+  },
+  "p94_migracion_opinion": {
+    "code": "P94",
+    "name": "Opinión sobre inmigración en Chile",
+    "pregunta": "¿Cree usted que la inmigración hace bien o mal al país?",
+    "tipo": "categórica",
+    "opciones": [
+      "Hace bien",
+      "Hace mal",
+      "Depende",
+      "NS/NR"
+    ]
+  },
+  "p95_narcotrafico_preocupacion": {
+    "code": "P95",
+    "name": "Preocupación por el narcotráfico",
+    "pregunta": "¿Qué tan preocupado está usted por el aumento del narcotráfico en su comuna?",
+    "tipo": "ordinal",
+    "opciones": [
+      "Muy preocupado",
+      "Algo preocupado",
+      "Poco preocupado",
+      "Nada preocupado",
+      "NS/NR"
+    ]
+  }
+}

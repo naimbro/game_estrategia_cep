@@ -1,6 +1,7 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import fetch from 'node-fetch';
+import variablesMetadata from './variables_metadata.json';
 
 admin.initializeApp();
 
@@ -35,6 +36,15 @@ interface Scenario {
   };
 }
 
+interface VariableMetadata {
+  code: string;
+  name: string;
+  pregunta: string;
+  tipo: string;
+  etiquetas?: { [key: string]: string };
+  opciones?: string[];
+}
+
 // Jueces (copiados de src/data/judges.ts)
 const judges: Judge[] = [
   {
@@ -62,6 +72,54 @@ const judges: Judge[] = [
     weight: 0.25
   }
 ];
+
+// Función para formatear variables seleccionadas con su metadata
+const formatSelectedVariables = (selectedVariables: string[]): string => {
+  if (!selectedVariables || selectedVariables.length === 0) {
+    return 'ninguna mencionada';
+  }
+
+  const metadata = variablesMetadata as { [key: string]: VariableMetadata };
+  const formattedVars: string[] = [];
+
+  selectedVariables.forEach((varKey, index) => {
+    const varMeta = metadata[varKey];
+
+    if (!varMeta) {
+      // Si no encontramos metadata, solo mostrar el código
+      formattedVars.push(`${index + 1}. ${varKey} (metadata no disponible)`);
+      return;
+    }
+
+    // Formato compacto con información clave
+    let varInfo = `${index + 1}. ${varKey}\n`;
+    varInfo += `   Pregunta: "${varMeta.pregunta.substring(0, 100)}${varMeta.pregunta.length > 100 ? '...' : ''}"\n`;
+    varInfo += `   Tipo: ${varMeta.tipo}\n`;
+
+    // Mostrar etiquetas si existen (variables del diccionario)
+    if (varMeta.etiquetas && Object.keys(varMeta.etiquetas).length > 0) {
+      const etiquetasArray = Object.entries(varMeta.etiquetas)
+        .map(([code, label]) => `${code}=${label}`)
+        .slice(0, 5); // Máximo 5 etiquetas
+      varInfo += `   Etiquetas: ${etiquetasArray.join(' | ')}`;
+      if (Object.keys(varMeta.etiquetas).length > 5) {
+        varInfo += ` (+ ${Object.keys(varMeta.etiquetas).length - 5} más)`;
+      }
+    }
+    // Mostrar opciones si existen (variables de encuestas)
+    else if (varMeta.opciones && varMeta.opciones.length > 0) {
+      const opcionesSlice = varMeta.opciones.slice(0, 4);
+      varInfo += `   Opciones: ${opcionesSlice.join(' | ')}`;
+      if (varMeta.opciones.length > 4) {
+        varInfo += ` (+ ${varMeta.opciones.length - 4} más)`;
+      }
+    }
+
+    formattedVars.push(varInfo);
+  });
+
+  return '\n\n' + formattedVars.join('\n\n');
+};
 
 // Variables CEP (simplificadas - en producción cargarías el JSON completo)
 const buildVariablesContext = (): string => {
@@ -109,7 +167,7 @@ ESCENARIO: ${scenario.text}
 PROPUESTA DE ANÁLISIS:
 "${proposal}"
 
-VARIABLES MENCIONADAS: ${selectedVariables.join(', ') || 'ninguna mencionada'}
+VARIABLES SELECCIONADAS:${formatSelectedVariables(selectedVariables)}
 
 Evalúa con ojo crítico:
 - ¿La propuesta menciona códigos específicos de variables CEP (ej: P47, P52)?
@@ -138,7 +196,7 @@ ESCENARIO: ${scenario.text}
 PROPUESTA DE ANÁLISIS:
 "${proposal}"
 
-VARIABLES MENCIONADAS: ${selectedVariables.join(', ') || 'ninguna mencionada'}
+VARIABLES SELECCIONADAS:${formatSelectedVariables(selectedVariables)}
 
 Evalúa desde la perspectiva de gobierno:
 - ¿El análisis propuesto informa decisiones de política pública?
@@ -166,7 +224,7 @@ ESCENARIO: ${scenario.text}
 PROPUESTA DE ANÁLISIS:
 "${proposal}"
 
-VARIABLES MENCIONADAS: ${selectedVariables.join(', ') || 'ninguna mencionada'}
+VARIABLES SELECCIONADAS:${formatSelectedVariables(selectedVariables)}
 
 Evalúa como periodista:
 - ¿La propuesta tiene un "ángulo" claro (un titular potencial)?
@@ -193,7 +251,7 @@ ESCENARIO: ${scenario.text}
 PROPUESTA DE ANÁLISIS:
 "${proposal}"
 
-VARIABLES MENCIONADAS: ${selectedVariables.join(', ') || 'ninguna mencionada'}
+VARIABLES SELECCIONADAS:${formatSelectedVariables(selectedVariables)}
 
 Evalúa la estrategia de visualización:
 - ¿La propuesta menciona un tipo de gráfico específico (barras, líneas, scatter, heatmap)?
